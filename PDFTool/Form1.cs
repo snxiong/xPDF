@@ -19,7 +19,6 @@ namespace PDFTool
     public partial class Form1 : Form
     {
         int currentNum = 0;
-        int textboxNum = 0;
         int mergeBoxNum = 0;
         int mergePanelNum = 0;
         
@@ -259,12 +258,15 @@ namespace PDFTool
             int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8,1));  // get the checkbox number
 
             textBox1.Text = "" + textBoxNum;
-           // textBox1.Text += " num = " + textBoxNum.ToString();
+            // textBox1.Text += " num = " + textBoxNum.ToString();
+
+            mergePanelNum = textBoxNum;
 
             if (checkBoxVar.Checked)
             {
                 
                 TextBox textboxVar = new TextBox();
+                TextBox textboxVar2 = new TextBox();
                 Button buttonVarUp = new Button();
                 Button buttonVarDown = new Button();
                 Panel panelVar = new Panel();
@@ -275,11 +277,13 @@ namespace PDFTool
                 panelVar.Size = new System.Drawing.Size(244,37);
 
                 buttonVarUp.Image = global::PDFTool.Properties.Resources.smalluparrow;
+                buttonVarUp.Name = textBoxNum.ToString();
                 buttonVarUp.Size = new System.Drawing.Size(22, 22);
                 buttonVarUp.Location = new Point(195,7);
                 buttonVarUp.Click += new System.EventHandler(this.up_Function);
 
                 buttonVarDown.Image = global::PDFTool.Properties.Resources.smalldownarrow;
+                buttonVarDown.Name = textBoxNum.ToString();
                 buttonVarDown.Size = new System.Drawing.Size(22, 22);
                 buttonVarDown.Location = new Point(220, 7);
                 buttonVarDown.Click += new System.EventHandler(this.down_Function);
@@ -290,6 +294,12 @@ namespace PDFTool
                 textboxVar.Size = new System.Drawing.Size(185, 20);
                 textboxVar.Location = new Point(0,7);
 
+                textboxVar2.Text = textBoxNum.ToString();
+                textboxVar2.Visible = false;
+
+
+
+                panelVar.Controls.Add(textboxVar2);
                 panelVar.Controls.Add(textboxVar);
                 panelVar.Controls.Add(buttonVarUp);
                 panelVar.Controls.Add(buttonVarDown);
@@ -376,28 +386,6 @@ namespace PDFTool
             }
         }
 
-        /*
-        public void reorganizepanelArray()
-        {
-            for(int i = 0; i <= 30; i++)
-            {
-                if(panelArray[i] == null)
-                {
-                    int k = i + 1;
-                    if(panelArray[k] == null)
-                    {
-                        i = 31;
-                    }
-                    else
-                    {
-                        panelArray[i] = panelArray[k];
-                        panelArray[k] = null;
-                    }
-                }
-            }
-        }
-        */
-
         // FUNCTION to reorganize the MergePanelArray so that there isn't any null object in between objects
         public void reorganizeMergePanelArray()
         {
@@ -429,12 +417,17 @@ namespace PDFTool
 
         public void up_Function(object sender, EventArgs e)
         {
-
+            Button buttonVar = sender as Button;
+            int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
+            textBox1.Text = "UP " + textBoxNum;
+            
         }
 
         public void down_Function(object sender, EventArgs e)
         {
-
+            Button buttonVar = sender as Button;
+            int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
+            textBox1.Text = "DOWN " + textBoxNum;
         }
 
         private void button3_Click(object sender, EventArgs e)

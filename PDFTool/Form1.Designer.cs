@@ -38,9 +38,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel3FileHolder = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1AppMode.SuspendLayout();
             this.panel2ActionDetail.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.panel3FileHolder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,6 +90,8 @@
             // 
             // panel2ActionDetail
             // 
+            this.panel2ActionDetail.Controls.Add(this.button4);
+            this.panel2ActionDetail.Controls.Add(this.button3);
             this.panel2ActionDetail.Controls.Add(this.textBox1);
             this.panel2ActionDetail.Controls.Add(this.tableLayoutPanel2);
             this.panel2ActionDetail.Controls.Add(this.button2);
@@ -110,7 +113,6 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-
             this.tableLayoutPanel2.Location = new System.Drawing.Point(30, 49);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 10;
@@ -164,7 +166,26 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(480, 560);
             this.tableLayoutPanel1.TabIndex = 0;
-      
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(30, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Array";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(205, 12);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "ClearText";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -180,7 +201,6 @@
             this.panel1AppMode.ResumeLayout(false);
             this.panel2ActionDetail.ResumeLayout(false);
             this.panel2ActionDetail.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3FileHolder.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -200,6 +220,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

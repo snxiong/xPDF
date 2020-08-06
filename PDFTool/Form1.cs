@@ -189,8 +189,6 @@ namespace PDFTool
 
         }
 
-        
-
         public void delete_Function(object sender, EventArgs e)
         {
 
@@ -199,9 +197,6 @@ namespace PDFTool
             //textBox1.Text = "Delete press  " + buttonName.Name.Substring(9,1) + " , " ;
 
             int panelNum = Int32.Parse(buttonName.Name.Substring(9, 1));    //the number of the panel to be deleted
-
-          
-
 
             for(int i = 0; i <= 30; i++)
             {
@@ -297,8 +292,6 @@ namespace PDFTool
                 textboxVar2.Text = textBoxNum.ToString();
                 textboxVar2.Visible = false;
 
-
-
                 panelVar.Controls.Add(textboxVar2);
                 panelVar.Controls.Add(textboxVar);
                 panelVar.Controls.Add(buttonVarUp);
@@ -316,22 +309,19 @@ namespace PDFTool
                     }
                 }
 
-
                 for (int i = 0; i <= 30; i++)
                 {
                     if (mergePanelArray[i] == null)
                     {
+                        mergePanelObj.setPlacement(i);
                         mergePanelArray[i] = mergePanelObj;
                         i = 31;
                     }
                     else
                     {
                         //WE NEED TO DO SOMETHING HERE
-
-
                     }
                 }
-
 
                 tableLayoutPanel2.Controls.Add(mergePanelObj.getPanel());
                
@@ -415,19 +405,121 @@ namespace PDFTool
 
         }
 
+        // FUNCTION to move up the obj in the mergePanelArray
         public void up_Function(object sender, EventArgs e)
         {
             Button buttonVar = sender as Button;
             int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
-            textBox1.Text = "UP " + textBoxNum;
-            
+            //textBox1.Text = "UP " + textBoxNum + "" ;
+
+            int placement = 0;
+            int replacementNum = 0;
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if(textBoxNum == mergePanelArray[i].getLinkNum())
+                {
+                    placement = mergePanelArray[i].getPlacement();
+                    i = 31;
+                }
+            }
+
+            for(int i= 0;i <= 30; i++)
+            {
+                if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
+                }
+                else
+                {
+                    i = 31;
+                }
+            }
+
+            if(placement != 0)
+            {
+
+                replacementNum = placement - 1;
+                mergePanelClass mergePanelHolder = mergePanelArray[replacementNum];
+                mergePanelArray[replacementNum] = mergePanelArray[placement];
+                mergePanelArray[replacementNum].setPlacement(replacementNum);
+                mergePanelArray[placement] = mergePanelHolder;
+                mergePanelArray[placement].setPlacement(placement);
+            }
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Add(mergePanelArray[i].getPanel());
+                }
+                else
+                {
+                    i = 31;
+                }
+                
+            }
         }
 
+        // FUNCTION to move down the obj in the mergePanelArray
         public void down_Function(object sender, EventArgs e)
         {
             Button buttonVar = sender as Button;
             int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
             textBox1.Text = "DOWN " + textBoxNum;
+
+            int placement = 0;
+            int replacementNum = 0;
+            int lastObj = 0;
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if(textBoxNum == mergePanelArray[i].getLinkNum())
+                {
+                    placement = mergePanelArray[i].getPlacement();
+                    i = 31;
+                }
+            }
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if(mergePanelArray[i] == null)
+                {
+                    lastObj = i;
+                    i = 31;
+                }
+                else if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
+                }
+              
+            }
+
+            if(placement != lastObj)
+            {
+                replacementNum = placement + 1;
+                mergePanelClass mergePanelHolder = mergePanelArray[replacementNum];
+                mergePanelArray[replacementNum] = mergePanelArray[placement];
+                mergePanelArray[replacementNum].setPlacement(replacementNum);
+                mergePanelArray[placement] = mergePanelHolder;
+                mergePanelArray[placement].setPlacement(placement);
+            }
+
+            for(int i = 0; i<= 30; i++)
+            {
+                if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Add(mergePanelArray[i].getPanel());
+                }
+                else
+                {
+                    i = 31;
+                }
+            }
+
+            
+
+           
         }
 
         private void button3_Click(object sender, EventArgs e)

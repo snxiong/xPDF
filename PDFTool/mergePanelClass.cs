@@ -24,6 +24,7 @@ namespace PDFTool
         string fileLocation;
         string fileName;
         int linkNum;
+        int placement;
 
         mergePanelClass()
         {
@@ -38,6 +39,15 @@ namespace PDFTool
             linkNum = linkNumInput;
         }
 
+        public void setPlacement(int placementInput)
+        {
+            placement = placementInput;
+        }
+        public int getPlacement()
+        {
+            return placement;
+        }
+
         public Panel getPanel()
         {
             return panelVar;
@@ -48,8 +58,70 @@ namespace PDFTool
             return linkNum;
         }
 
+        public string getfileName()
+        {
+            return fileName;
+        }
+
      
     }
 
 
 }
+
+
+ /*
+            buttonVar = sender as Button;
+            int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
+            //textBox1.Text = "UP " + textBoxNum + "" ;
+
+            int placement = 0;
+            int replacementNum = 0;
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if(textBoxNum == mergePanelArray[i].getLinkNum())
+                {
+                    placement = mergePanelArray[i].getPlacement();
+                    i = 31;
+                }
+            }
+
+            for(int i= 0;i <= 30; i++)
+            {
+                if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
+                }
+                else
+                {
+                    i = 31;
+                }
+            }
+
+            if(placement != 0)
+            {
+
+                replacementNum = placement - 1;
+                mergePanelClass mergePanelHolder = mergePanelArray[replacementNum];
+                mergePanelArray[replacementNum] = mergePanelArray[placement];
+                mergePanelArray[replacementNum].setPlacement(replacementNum);
+                mergePanelArray[placement] = mergePanelHolder;
+                mergePanelArray[placement].setPlacement(placement);
+            }
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Add(mergePanelArray[i].getPanel());
+                }
+                else
+                {
+                    i = 31;
+                }
+                
+            }
+
+
+ * */

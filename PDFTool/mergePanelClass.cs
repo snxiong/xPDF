@@ -63,6 +63,10 @@ namespace PDFTool
             return fileName;
         }
 
+        public string getfileLocation()
+        {
+            return fileLocation;
+        }
      
     }
 

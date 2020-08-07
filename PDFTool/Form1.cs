@@ -13,6 +13,7 @@ using iText;
 using iText.Kernel.Pdf;
 using iText.Kernel.Utils;
 using iText.Layout.Element;
+using Org.BouncyCastle.Crypto.Engines;
 
 namespace PDFTool
 {
@@ -553,6 +554,60 @@ namespace PDFTool
         private void button4_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+        }
+
+        // array that holds all the pdf files in the right order mergePanelArray[]
+
+        //FUNCTION eventlistener for the "Merge Documents" button 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MergeClass mergeClassObj = new MergeClass(mergePanelArray);
+        }
+
+        private void button1Merge_Click(object sender, EventArgs e)
+        {
+            if (panel2ActionDetail.Visible == true)
+            {
+                // Do nothing
+            }
+            else
+            {
+                panel2ActionDetail.Visible = true;
+            }
+        }
+
+        private void button2Split_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i <= 30; i++)
+            {
+                if(mergePanelArray[i] != null)
+                {
+                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
+                    mergePanelArray[i] = null;
+                }
+                else
+                {
+                    i = 31;
+                }
+            }
+
+            /*
+            button3.Visible = false;
+            button2.Visible = false;
+            button4.Visible = false;
+            tableLayoutPanel2.Visible = false;
+            textBox1.Visible = false;
+            button5.Visible = false;
+            */
+            panel2ActionDetail.Visible = false;
+
+
+
+        }
+
+        private void button3Delete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

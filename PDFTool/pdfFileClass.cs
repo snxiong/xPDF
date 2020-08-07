@@ -38,9 +38,6 @@ namespace PDFTool
         {
 
             string fileName = Path.GetFileName(getPDFLocation());
-
-
-
             return fileName;
         }
     }

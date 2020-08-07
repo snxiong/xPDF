@@ -485,12 +485,13 @@ namespace PDFTool
             {
                 if(mergePanelArray[i] == null)
                 {
-                    lastObj = i;
+                    lastObj = i - 1;
                     i = 31;
                 }
                 else if(mergePanelArray[i] != null)
                 {
                     tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
+                    //textBox1.Text += " REMOVED " + mergePanelArray[i].getfileName();
                 }
               
             }

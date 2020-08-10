@@ -25,18 +25,26 @@ namespace PDFTool
         string fileName;
         int linkNum;
         int placement;
+        CheckBox checkBoxVar;
 
         mergePanelClass()
         {
 
         }
 
-        public mergePanelClass(Panel panelInput, string fileLocInput, int linkNumInput)
+        public mergePanelClass(Panel panelInput, string fileLocInput, int linkNumInput, CheckBox checkBoxInput)
         {
             panelVar = panelInput;
             fileLocation = fileLocInput;
             fileName = Path.GetFileName(fileLocInput);
             linkNum = linkNumInput;
+            checkBoxVar = checkBoxInput;
+
+        }
+        
+        public CheckBox getCheckBox()
+        {
+            return checkBoxVar;
         }
 
         public void setPlacement(int placementInput)

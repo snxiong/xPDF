@@ -9,6 +9,9 @@ using iText;
 using iText.Kernel.Pdf;
 using iText.Kernel.Utils;
 
+
+// CLASS DESCRIPTION: MergeClass.cs holds the code to merge the pdf documents sotred in megePanelArrayInput
+
 namespace PDFTool
 {
     class MergeClass

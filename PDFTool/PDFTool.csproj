@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="MergeClass.cs" />
     <Compile Include="mergePanelClass.cs" />
+    <Compile Include="mergePanelController.cs" />
     <Compile Include="pdfFileClass.cs" />
     <Compile Include="pdfIconPanelClass.cs" />
     <Compile Include="Program.cs" />

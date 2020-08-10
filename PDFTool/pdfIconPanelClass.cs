@@ -13,6 +13,7 @@ namespace PDFTool
         pdfFileClass pdfObj;
         Panel panelObj;
         int NumID; // used for identification
+        CheckBox checkBoxVar;
 
         public pdfIconPanelClass()
         {
@@ -23,6 +24,16 @@ namespace PDFTool
         {
             pdfObj = inputPDFObj;
             panelObj = inputPanelObj;
+        }
+
+        public void setCheckBox(CheckBox checkBoxInput)
+        {
+            checkBoxVar = checkBoxInput;
+        }
+
+        public CheckBox getCheckBox()
+        {
+            return checkBoxVar;
         }
 
         public void setID(int inputID)

@@ -30,19 +30,27 @@ namespace PDFTool
         string textBoxName = "textBox1";
         string mergeTextBoxName = "mergeTextBox1";
 
+        bool mergeFlag = true;
 
 
-        //Panel[] panelArray = new Panel[30];
-        //Panel[] mergePanel = new Panel[30];
-        pdfFileClass[] pdfObjArray = new pdfFileClass[30];
+
+
+        // mergePanelArray holds the names of the files that the user wants to be merged
         mergePanelClass[] mergePanelArray = new mergePanelClass[30];
+        mergePanelClass[] mergePanelArrayCopy = new mergePanelClass[30];
 
+        // pdfIconArray holds the names of the files that the user uploaded to the program
         pdfIconPanelClass[] pdfIconArray = new pdfIconPanelClass[30];
+
+        //
+
+
 
 
         public Form1()
         {
             InitializeComponent();
+           // textBox1.Visible = false;
           
         }
 
@@ -102,7 +110,7 @@ namespace PDFTool
             tableLayoutPanel1.Controls.Add(newPanel);   // adding the new PANEL to the tableLayoutPanel
             pdfIconObj.setPanel(newPanel);
             pdfIconObj.setID(currentNum);
-            pdfIconArray[currentNum] = pdfIconObj;
+            
 
             fileName = pdfIconObj.getPDFfileName();
             //textBox1.Text +=  " [" + currentNum + "]" + " ID = " + pdfIconArray[currentNum].getID() + " " + pdfIconArray[currentNum].getPDFfileName();
@@ -155,6 +163,9 @@ namespace PDFTool
             newPanel.Controls.Add(newCheckBox);     // adding the new checkbox to the new PANEL
 
             newCheckBox.Location = new Point(30,120);   // Setting the checkBox location in the PANEL
+            pdfIconObj.setCheckBox(newCheckBox);
+
+            pdfIconArray[currentNum] = pdfIconObj;
 
             //==========CREATE NEW TEXTBOX==========
 
@@ -305,7 +316,7 @@ namespace PDFTool
                 {
                     if(textBoxNum == pdfIconArray[i].getID())
                     {
-                       mergePanelObj = new mergePanelClass(panelVar, pdfIconArray[i].getPDFfilePath(), textBoxNum);
+                       mergePanelObj = new mergePanelClass(panelVar, pdfIconArray[i].getPDFfilePath(), textBoxNum, pdfIconArray[i].getCheckBox());
                         i = 31;
                     }
                 }
@@ -329,8 +340,15 @@ namespace PDFTool
             }
             else
             {   // remove merge panel from the merge box table layout panel  
+                if(mergeFlag == true)
+                {
+                    removeObjfromMergePanelArray(textBoxNum);
+                }
+                else
+                {
 
-                removeObjfromMergePanelArray(textBoxNum);
+                }
+              
 
             }
 
@@ -551,10 +569,7 @@ namespace PDFTool
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-        }
+      
 
         // array that holds all the pdf files in the right order mergePanelArray[]
 
@@ -566,42 +581,41 @@ namespace PDFTool
 
         private void button1Merge_Click(object sender, EventArgs e)
         {
-            if (panel2ActionDetail.Visible == true)
-            {
-                // Do nothing
-            }
-            else
-            {
-                panel2ActionDetail.Visible = true;
-            }
+            mergeFlag = true;
+            mergePanelArray = mergePanelArrayCopy; // fix tomarrow
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1);
+            mergePanelControllerObj.enableView();
         }
 
         private void button2Split_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i <= 30; i++)
+            CheckBox checkBoxVar;
+            int ivar = 0;
+            mergeFlag = false;
+            mergePanelArrayCopy = mergePanelArray;// fix tomarrow
+
+            for (int x = 0; x <= 30; x++)
             {
-                if(mergePanelArray[i] != null)
+                if(mergePanelArray[x] == null)
                 {
-                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
-                    mergePanelArray[i] = null;
+                    ivar = x;
+                    x = 31;
                 }
                 else
                 {
-                    i = 31;
+                    //textBox1.Text += "[" + x + "]" + mergePanelArray[x].getfileName();
+                    checkBoxVar = mergePanelArray[x].getCheckBox();
+                    checkBoxVar.Checked = false;
+
+                    tableLayoutPanel2.Controls.Remove(mergePanelArray[x].getPanel());
+                    mergePanelArray[x] = null;
                 }
             }
 
-            /*
-            button3.Visible = false;
-            button2.Visible = false;
-            button4.Visible = false;
-            tableLayoutPanel2.Visible = false;
-            textBox1.Visible = false;
-            button5.Visible = false;
-            */
-            panel2ActionDetail.Visible = false;
+            textBox1.Text += "(" + ivar + ")";
 
-
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1);
+            mergePanelControllerObj.disableView();
 
         }
 
@@ -609,5 +623,7 @@ namespace PDFTool
         {
 
         }
+
+
     }
 }

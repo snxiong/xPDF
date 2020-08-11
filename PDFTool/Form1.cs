@@ -14,6 +14,7 @@ using iText.Kernel.Pdf;
 using iText.Kernel.Utils;
 using iText.Layout.Element;
 using Org.BouncyCastle.Crypto.Engines;
+using System.Runtime.CompilerServices;
 
 namespace PDFTool
 {
@@ -41,6 +42,7 @@ namespace PDFTool
 
         // pdfIconArray holds the names of the files that the user uploaded to the program
         pdfIconPanelClass[] pdfIconArray = new pdfIconPanelClass[30];
+        pdfIconPanelClass[] pdfIconArrayCopy = new pdfIconPanelClass[30];
 
         //
 
@@ -581,24 +583,30 @@ namespace PDFTool
 
         private void button1Merge_Click(object sender, EventArgs e)
         {
-            mergeFlag = true;
-            mergePanelArray = mergePanelArrayCopy; // fix tomarrow
-            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1);
-            mergePanelControllerObj.enableView();
+            
+            if(!mergeFlag)
+            {
+                mergeFlag = true;
+                mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1);
+                mergePanelControllerObj.enableView();
+
+
+            }
+
+            
         }
 
         private void button2Split_Click(object sender, EventArgs e)
         {
             CheckBox checkBoxVar;
-            int ivar = 0;
             mergeFlag = false;
-            mergePanelArrayCopy = mergePanelArray;// fix tomarrow
+
+            
 
             for (int x = 0; x <= 30; x++)
             {
                 if(mergePanelArray[x] == null)
                 {
-                    ivar = x;
                     x = 31;
                 }
                 else
@@ -612,10 +620,22 @@ namespace PDFTool
                 }
             }
 
-            textBox1.Text += "(" + ivar + ")";
 
             mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1);
             mergePanelControllerObj.disableView();
+
+            Button addPDFButton = new Button();
+            addPDFButton.Location = new Point(113,20);
+            addPDFButton.Size = new System.Drawing.Size(75, 23);
+            addPDFButton.Text = "Add PDF";
+            panel2ActionDetail.Controls.Add(addPDFButton);
+
+            pictureBox1.Visible = true;
+            pictureBox2.Visible = true;
+            textBox3.Visible = true;
+            textBox4.Visible = true;
+
+
 
         }
 

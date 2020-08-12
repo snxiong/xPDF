@@ -22,29 +22,33 @@ namespace PDFTool
         Button mergeButton;
         TableLayoutPanel mergeTableLayoutPanel;
         TextBox textBoxMerge;
+        Label mergeLabel;
 
-        public mergePanelController(Button addPDFButtonInput, Button mergeButtonInput, TableLayoutPanel tableLayoutPanelInput, TextBox textBoxMergeInput)
+        public mergePanelController(Button addPDFButtonInput, Button mergeButtonInput, TableLayoutPanel tableLayoutPanelInput, TextBox textBoxMergeInput, Label labelInput)
         {
-            addPDFButton = addPDFButtonInput;
+            //addPDFButton = addPDFButtonInput;
             mergeButton = mergeButtonInput;
             mergeTableLayoutPanel = tableLayoutPanelInput;
             textBoxMerge = textBoxMergeInput;
+            mergeLabel = labelInput;
         }
 
         public void disableView()
         {
-            addPDFButton.Visible = false;
+           // addPDFButton.Visible = false;
             mergeButton.Visible = false;
             mergeTableLayoutPanel.Visible = false;
             textBoxMerge.Visible = false;
+            mergeLabel.Visible = false;
         }
 
         public void enableView()
         {
-            addPDFButton.Visible = true;
+           // addPDFButton.Visible = true;
             mergeButton.Visible = true;
             mergeTableLayoutPanel.Visible = true;
             textBoxMerge.Visible = true;
+            mergeLabel.Visible = true;
         }
     }
 }

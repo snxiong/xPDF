@@ -587,7 +587,10 @@ namespace PDFTool
             if(!mergeFlag)
             {
                 mergeFlag = true;
-                mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1);
+                splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+                splitPanelControllerObj.disableSplitView();
+
+                mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
                 mergePanelControllerObj.enableView();
 
 
@@ -621,19 +624,14 @@ namespace PDFTool
             }
 
 
-            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1);
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1, label2);
             mergePanelControllerObj.disableView();
 
-            Button addPDFButton = new Button();
-            addPDFButton.Location = new Point(113,20);
-            addPDFButton.Size = new System.Drawing.Size(75, 23);
-            addPDFButton.Text = "Add PDF";
-            panel2ActionDetail.Controls.Add(addPDFButton);
 
-            pictureBox1.Visible = true;
-            pictureBox2.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
+            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+            splitPanelControllerObj.enableSplitView();
+
+
 
 
 
@@ -644,6 +642,13 @@ namespace PDFTool
 
         }
 
+        // SPLIT button event listenter. input willl be taken from textbox3 and textbox4
+        private void button3_Click_2(object sender, EventArgs e)
+        {
+            int firstPage;
+            int secondPage;
 
+
+        }
     }
 }

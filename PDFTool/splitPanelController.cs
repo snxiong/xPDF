@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iText.Layout.Element;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,47 @@ namespace PDFTool
 {
     class splitPanelController
     {
-        Button addPDFButton;
+        TextBox splitTextbox1;
+        TextBox splitTextBox2;
+        TextBox splitTextBox3;
+        Button splitButton;
+        Label splitLabel1;
+        Label splitLabel2;
+        Label splitLabel3;
+
+        public splitPanelController(TextBox splitTextBoxInput1, TextBox splitTextBoxInput2,TextBox splitTextBoxInput3, Button splitButtonInput, Label splitLabelInput1, Label splitLabelInput2, Label splitLabelInput3)
+        {
+            splitTextbox1 = splitTextBoxInput1;
+            splitTextBox2 = splitTextBoxInput2;
+            splitTextBox3 = splitTextBoxInput3;
+            splitButton = splitButtonInput;
+            splitLabel1 = splitLabelInput1;
+            splitLabel2 = splitLabelInput2;
+            splitLabel3 = splitLabelInput3;
+        }
+
+        public void disableSplitView()
+        {
+            splitTextbox1.Visible = false;
+            splitTextBox2.Visible = false;
+            splitTextBox3.Visible = false;
+            splitButton.Visible = false;
+            splitLabel1.Visible = false;
+            splitLabel2.Visible = false;
+            splitLabel3.Visible = false;
+        }
+
+        public void enableSplitView()
+        {
+            splitTextbox1.Visible = true;
+            splitTextBox2.Visible = true;
+            splitTextBox3.Visible = true;
+            splitButton.Visible = true;
+            splitLabel1.Visible = true;
+            splitLabel2.Visible = true;
+            splitLabel3.Visible = true;
+        }
+
 
 
 

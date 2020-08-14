@@ -18,12 +18,15 @@ namespace PDFTool
 
     class mergePanelController
     {
-        Button addPDFButton;
         Button mergeButton;
         TableLayoutPanel mergeTableLayoutPanel;
         TextBox textBoxMerge;
         Label mergeLabel;
 
+        /***********************************************/
+        // CONSTRUCTOR: mergePanelController()
+        // DESCRIPTION: Constructs and intializses the object
+        /***********************************************/
         public mergePanelController(Button addPDFButtonInput, Button mergeButtonInput, TableLayoutPanel tableLayoutPanelInput, TextBox textBoxMergeInput, Label labelInput)
         {
             //addPDFButton = addPDFButtonInput;
@@ -33,7 +36,11 @@ namespace PDFTool
             mergeLabel = labelInput;
         }
 
-        public void disableView()
+        /***********************************************/
+        // FUNCTION: void disableMergeView()
+        // DESCRIPTION: Disables all the view for the controllers in "Merge" mode functions.
+        /***********************************************/
+        public void disableMergeView()
         {
            // addPDFButton.Visible = false;
             mergeButton.Visible = false;
@@ -42,7 +49,11 @@ namespace PDFTool
             mergeLabel.Visible = false;
         }
 
-        public void enableView()
+        /***********************************************/
+        // FUNCTION: void enableMergeView()
+        // DESCRIPTION: Disables all the view for the controllers in "Merge" mode functions.
+        /***********************************************/
+        public void enableMergeView()
         {
            // addPDFButton.Visible = true;
             mergeButton.Visible = true;

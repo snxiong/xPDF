@@ -24,14 +24,25 @@ namespace PDFTool
         string fileLocation;
         string fileName;
         int linkNum;
-        int placement;
+        int que;
         CheckBox checkBoxVar;
 
-        mergePanelClass()
+
+        /***********************************************/
+        // CONSTRUCTOR: mergePanelClass()
+        // DESCRIPTION: constructor for the class if there isn't any parameters
+        /***********************************************/
+        public mergePanelClass()
         {
 
         }
 
+        /***********************************************/
+        // CONSTRUCTOR: mergePanelClass()
+        // DESCRIPTION: Constructor for the class if there is some parameters when initializing the object
+        // Saves all the relevant information from a single PDF-Icon to the mergePanelClass object so that 
+        // it can be reference when mergeing the files
+        /***********************************************/
         public mergePanelClass(Panel panelInput, string fileLocInput, int linkNumInput, CheckBox checkBoxInput)
         {
             panelVar = panelInput;
@@ -41,99 +52,78 @@ namespace PDFTool
             checkBoxVar = checkBoxInput;
 
         }
-        
+
+        /***********************************************/
+        // FUNCTION: CheckBox getCheckBox()
+        // DESCRIPTION: Get-function that returns the "CheckBox" controller of the PDF-Icon
+        // EXAMPLE: RETURNS = "CheckBox" <--A CheckBox Controller
+        /***********************************************/
         public CheckBox getCheckBox()
         {
             return checkBoxVar;
         }
 
-        public void setPlacement(int placementInput)
+        /***********************************************/
+        // FUNCTION: void setPlacement()
+        // DESCRIPTION: Set-function that saves the current que of the PDF documents.
+        // This is used to determine the position in the order of the merge documents.
+        /***********************************************/
+        public void setQue(int queInput)
         {
-            placement = placementInput;
-        }
-        public int getPlacement()
-        {
-            return placement;
+            que = queInput;
         }
 
+        /***********************************************/
+        // FUNCTION: int getPlacement()
+        // DESCRIPTION: Get-function that returns the que number of the PDF document
+        // EXAMPLE: RETURNS = '4' <-- 4th document in the merged PDF document.
+        /***********************************************/
+        public int getQue()
+        {
+            return que;
+        }
+
+        /***********************************************/
+        // FUNCTION: void getPanel()
+        // DESCRIPTION: Get-function that returns Panel controller on the right hand side of the program 
+        // EXAMPLE: RETURNS = "Panel" <--a Panel controller
+        /***********************************************/
         public Panel getPanel()
         {
             return panelVar;
         }
 
+        /***********************************************/
+        // FUNCTION: int getLinkNum()
+        // DESCRIPTION: Get-function that returns Panel controller on the right hand side of the program 
+        // EXAMPLE: RETURNS = "Panel" <--a Panel controller
+        /***********************************************/
         public int getLinkNum()
         {
             return linkNum;
         }
 
+        /***********************************************/
+        // FUNCTION: string getfileName()
+        // DESCRIPTION: Get-function that returns the PDF file name
+        // EXAMPLE: RETURNS = "someUserPDFdocument.pdf"
+        /***********************************************/
         public string getfileName()
         {
             return fileName;
         }
 
+        /***********************************************/
+        // FUNCTION: string getfileLocation()
+        // DESCRIPTION: Get-function that returns the PDF file location
+        // EXAMPLE: RETURNS = "C:\\user\someUserName\Desktop\someUserPDFdocument.pdf"
+        /***********************************************/
         public string getfileLocation()
         {
             return fileLocation;
         }
-     
+        
     }
 
 
 }
-
-
- /*
-            buttonVar = sender as Button;
-            int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
-            //textBox1.Text = "UP " + textBoxNum + "" ;
-
-            int placement = 0;
-            int replacementNum = 0;
-
-            for(int i = 0; i <= 30; i++)
-            {
-                if(textBoxNum == mergePanelArray[i].getLinkNum())
-                {
-                    placement = mergePanelArray[i].getPlacement();
-                    i = 31;
-                }
-            }
-
-            for(int i= 0;i <= 30; i++)
-            {
-                if(mergePanelArray[i] != null)
-                {
-                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
-                }
-                else
-                {
-                    i = 31;
-                }
-            }
-
-            if(placement != 0)
-            {
-
-                replacementNum = placement - 1;
-                mergePanelClass mergePanelHolder = mergePanelArray[replacementNum];
-                mergePanelArray[replacementNum] = mergePanelArray[placement];
-                mergePanelArray[replacementNum].setPlacement(replacementNum);
-                mergePanelArray[placement] = mergePanelHolder;
-                mergePanelArray[placement].setPlacement(placement);
-            }
-
-            for(int i = 0; i <= 30; i++)
-            {
-                if(mergePanelArray[i] != null)
-                {
-                    tableLayoutPanel2.Controls.Add(mergePanelArray[i].getPanel());
-                }
-                else
-                {
-                    i = 31;
-                }
-                
-            }
-
-
- * */

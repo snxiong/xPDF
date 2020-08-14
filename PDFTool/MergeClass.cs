@@ -18,13 +18,22 @@ namespace PDFTool
     {
         mergePanelClass[] mergePanelArray = new mergePanelClass[30];
 
+        /***********************************************/
+        // CONSTRUCTOR: MergeClass()
+        // DESCRIPTION: constructs the mergeClass object and merges the document that is currently stored in the
+        //              mergePanelClass array that is accpeted as a parameter
+        /***********************************************/
         public MergeClass(mergePanelClass[] mergePanelArrayInput)
         {
             mergePanelArray = mergePanelArrayInput;
             mergePDFDoc();
         }
 
-        //FUNCTION to merge the user's PDF documents
+
+        /***********************************************/
+        // FUNCTION: void mergePDFDoc()
+        // DESCRIPTION: Does the actual mergeing of PDF documents, will prompt user where to save the merged document.
+        /***********************************************/
         private void mergePDFDoc()
         {
 

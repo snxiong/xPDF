@@ -15,6 +15,8 @@ using iText.Kernel.Utils;
 using iText.Layout.Element;
 using Org.BouncyCastle.Crypto.Engines;
 using System.Runtime.CompilerServices;
+using Org.BouncyCastle.Asn1.Ocsp;
+using System.Linq.Expressions;
 
 namespace PDFTool
 {
@@ -32,7 +34,7 @@ namespace PDFTool
         bool splitFlag = false;
         bool deleteFlag = false;
 
-
+        string splitFilePath;
 
 
         // mergePanelArray holds the names of the files that the user wants to be merged
@@ -211,7 +213,7 @@ namespace PDFTool
         // EVENTLISTENER: for the "DELETE" button that removes the PDF icon
         // from the middle of the panel
         /***********************************************/
-        public void delete_Function(object sender, EventArgs e)
+        private void delete_Function(object sender, EventArgs e)
         {
 
             Button buttonName = sender as Button;
@@ -263,7 +265,7 @@ namespace PDFTool
         // EVENTLISTENER: for the Checkbox that is checked in the middle panel, will create 
         //                Controllers that represents the PDF file in the merge Panel on the left hand side of the program
         /***********************************************/
-        public void check_Function(object sender, EventArgs e)
+        private void check_Function(object sender, EventArgs e)
         {
             CheckBox checkBoxVar = sender as CheckBox;
 
@@ -276,98 +278,20 @@ namespace PDFTool
 
             if (checkBoxVar.Checked)
             {
-                
-                
-                
-                
-               
-
-
-                // mergeTextBoxName = mergeTextBoxName.Remove(12, 1);
-                // mergeTextBoxName = mergeTextBoxName + textBoxNum.ToString();
-
-                //=====================================
-                //=========CREATES NEW PANEL===========
-                //=====================================
-
-                Panel panelVar = new Panel();
-                panelVar.Size = new System.Drawing.Size(244,37);
-
-
-                //=====================================
-                //=========CREATES NEW BUTTON==========
-                //=====================================
-
-                Button buttonVarUp = new Button();
-                buttonVarUp.Image = global::PDFTool.Properties.Resources.smalluparrow;
-                buttonVarUp.Name = textBoxNum.ToString();
-                buttonVarUp.Size = new System.Drawing.Size(22, 22);
-                buttonVarUp.Location = new Point(195,7);
-                buttonVarUp.Click += new System.EventHandler(this.up_Function);
-
-                //=====================================
-                //=========CREATES NEW BUTTON==========
-                //=====================================
-
-                Button buttonVarDown = new Button();
-                buttonVarDown.Image = global::PDFTool.Properties.Resources.smalldownarrow;
-                buttonVarDown.Name = textBoxNum.ToString();
-                buttonVarDown.Size = new System.Drawing.Size(22, 22);
-                buttonVarDown.Location = new Point(220, 7);
-                buttonVarDown.Click += new System.EventHandler(this.down_Function);
-
-                //=====================================
-                //========CREATES NEW TEXTBOX==========
-                //=====================================
-
-                //textboxVar.Name = mergeTextBoxName;
-                //textboxVar.Text = pdfObjArray[textBoxNum].getPDFname();
-                TextBox textboxVar = new TextBox();
-                textboxVar.Text = pdfIconArray[textBoxNum].getPDFfileName();
-                textboxVar.Size = new System.Drawing.Size(185, 20);
-                textboxVar.Location = new Point(0,7);
-
-                //====================================
-                //========CREATES NEW TEXTBOX=========
-                //=====================================
-                TextBox textboxVar2 = new TextBox();
-                textboxVar2.Text = textBoxNum.ToString();
-                textboxVar2.Visible = false;
-
-                // Adds all newly created controllers to the panel
-                panelVar.Controls.Add(textboxVar2);
-                panelVar.Controls.Add(textboxVar);
-                panelVar.Controls.Add(buttonVarUp);
-                panelVar.Controls.Add(buttonVarDown);
-
-                mergePanelClass mergePanelObj = null;
-
-                int x = 0;
-                for (int i = 0; i <= 30; i++)
+                if(mergeFlag)
                 {
-                    if(textBoxNum == pdfIconArray[i].getID())
-                    {
-                       mergePanelObj = new mergePanelClass(panelVar, pdfIconArray[i].getPDFfilePath(), textBoxNum, pdfIconArray[i].getCheckBox());
-                        i = 31;
-                    }
+                    createMergeControllers(sender);
                 }
-
-                for (int i = 0; i <= 30; i++)
+                else if(splitFlag)
                 {
-                    if (mergePanelArray[i] == null)
-                    {
-                        mergePanelObj.setQue(i); // setPlacement
-                        mergePanelArray[i] = mergePanelObj;
-                        i = 31;
-                    }
-                    else
-                    {
-                        //WE NEED TO DO SOMETHING HERE
-                    }
+                    splitAction(sender);
                 }
+                else if(deleteFlag)
+                {
 
-                tableLayoutPanel2.Controls.Add(mergePanelObj.getPanel());
-               
+                }
+                
+
             }
             else
             {   // remove merge panel from the merge box table layout panel  
@@ -375,11 +299,6 @@ namespace PDFTool
                 {
                     removeObjfromMergePanelArray(textBoxNum);
                 }
-                else
-                {
-
-                }
-              
 
             }
 
@@ -389,7 +308,7 @@ namespace PDFTool
         // FUNCTION: void removeObjectfromMergePanelArray()
         // DESCRIPTION: removes an object from the mergePanelArray referenced by inputTextBoxNum
         /***********************************************/
-        public void removeObjfromMergePanelArray(int inputTextBoxNum)
+        private void removeObjfromMergePanelArray(int inputTextBoxNum)
         {
             for (int i = 0; i <= 30; i++)
             {
@@ -412,7 +331,7 @@ namespace PDFTool
         // FUNCTION: void reorganizedpdfIconArray()
         // DESCRIPTION: Reorganizes the pdfIconArray so that there isn't any null objects in between
         /***********************************************/
-        public void reorganizepdfIconArray()
+        private void reorganizepdfIconArray()
         {
             for(int i = 0; i <= 30; i++)
             {
@@ -436,7 +355,7 @@ namespace PDFTool
         // FUNCTION: void reorganizedMergePanelArray()
         // DESCRIPTION:Reorganizes the mergePanelArray so that there isn't any null object in between
         /***********************************************/
-        public void reorganizeMergePanelArray()
+        private void reorganizeMergePanelArray()
         {
             for (int i = 0; i <= 30; i++)
             {
@@ -465,7 +384,7 @@ namespace PDFTool
         // FUNCTION: void up_Function()
         // EVENTLISTENER: For the up arrow buttons in the MergePanel, moves the PDF files up in the que
         /***********************************************/
-        public void up_Function(object sender, EventArgs e)
+        private void up_Function(object sender, EventArgs e)
         {
             Button buttonVar = sender as Button;
             int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
@@ -525,7 +444,7 @@ namespace PDFTool
         // FUNCTION: void down_Function()
         // EVENTLISTENER: For the down arrow buttons in the MergePanel, moves the PDF files down in the que
         /***********************************************/
-        public void down_Function(object sender, EventArgs e)
+        private void down_Function(object sender, EventArgs e)
         {
             Button buttonVar = sender as Button;
             int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
@@ -629,6 +548,7 @@ namespace PDFTool
         {
             CheckBox checkBoxVar;
             mergeFlag = false;
+            splitFlag = true;
 
             
 
@@ -688,9 +608,189 @@ namespace PDFTool
             textBox3.Text = "";
             textBox4.Text = "";
 
+            string fileTobeSplit = splitFilePath;
+            
+
+            
+
+            splitClass splitPDF = new splitClass(fileTobeSplit);
+
+            string resultPDF;
+
+            if(isNumericFirst && isNmericLast)
+            {
+                resultPDF = splitPDF.splitRange(firstPage, lastPage);
+
+                switch(resultPDF)
+                {
+                    case "1":
+                        MessageBox.Show("Page " + firstPage + " is not within range. ERROR#1");
+                        textBox3.Text = "";
+                        return;
+                    case "2":
+                        MessageBox.Show("Page " + lastPage + " is not within range. ERROR#02");
+                        textBox4.Text = "";
+                        return;
+                    case "3":
+                        MessageBox.Show("Page " + firstPage + " and " + lastPage + " is not within range. ERROR#03");
+                        textBox3.Text = "";
+                        textBox4.Text = "";
+                        return;
+                    case "4":
+                        MessageBox.Show("Entered the Page number in the wrong order. [first] to [last]. ERROR#04");
+                        textBox3.Text = "";
+                        textBox4.Text = "";
+                        return;
+                    default:
+                        break;
+                }
+
+                string filename = Path.GetFileName(resultPDF);
+
+                FileInfo file = new FileInfo(resultPDF);
+                file.Directory.Create();
+
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.Filter = "PDF (*.pdf)| *.pdf";
+                saveFileDialog1.FilterIndex = 2;
+                saveFileDialog1.RestoreDirectory = true;
+                saveFileDialog1.ShowDialog();
+
+                if(saveFileDialog1.FileName != "")
+                {
+                    PdfDocument pdf = new PdfDocument(new PdfWriter(saveFileDialog1.FileName));
+                }
+
+                
+                
+
+            }
+        }
+
+        private void createMergeControllers(object sender)
+        {
+            CheckBox checkBoxVar = sender as CheckBox;
+
+            //textBox1.Text = "Check box check " + checkBoxVar.Name;
+            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
+
+
+            //=====================================
+            //=========CREATES NEW PANEL===========
+            //=====================================
+
+            Panel panelVar = new Panel();
+            panelVar.Size = new System.Drawing.Size(244, 37);
+
+
+            //=====================================
+            //=========CREATES NEW BUTTON==========
+            //=====================================
+
+            Button buttonVarUp = new Button();
+            buttonVarUp.Image = global::PDFTool.Properties.Resources.smalluparrow;
+            buttonVarUp.Name = textBoxNum.ToString();
+            buttonVarUp.Size = new System.Drawing.Size(22, 22);
+            buttonVarUp.Location = new Point(195, 7);
+            buttonVarUp.Click += new System.EventHandler(this.up_Function);
+
+            //=====================================
+            //=========CREATES NEW BUTTON==========
+            //=====================================
+
+            Button buttonVarDown = new Button();
+            buttonVarDown.Image = global::PDFTool.Properties.Resources.smalldownarrow;
+            buttonVarDown.Name = textBoxNum.ToString();
+            buttonVarDown.Size = new System.Drawing.Size(22, 22);
+            buttonVarDown.Location = new Point(220, 7);
+            buttonVarDown.Click += new System.EventHandler(this.down_Function);
+
+            //=====================================
+            //========CREATES NEW TEXTBOX==========
+            //=====================================
+
+            //textboxVar.Name = mergeTextBoxName;
+            //textboxVar.Text = pdfObjArray[textBoxNum].getPDFname();
+            TextBox textboxVar = new TextBox();
+            textboxVar.Text = pdfIconArray[textBoxNum].getPDFfileName();
+            textboxVar.Size = new System.Drawing.Size(185, 20);
+            textboxVar.Location = new Point(0, 7);
+
+            //====================================
+            //========CREATES NEW TEXTBOX=========
+            //=====================================
+            TextBox textboxVar2 = new TextBox();
+            textboxVar2.Text = textBoxNum.ToString();
+            textboxVar2.Visible = false;
+
+            // Adds all newly created controllers to the panel
+            panelVar.Controls.Add(textboxVar2);
+            panelVar.Controls.Add(textboxVar);
+            panelVar.Controls.Add(buttonVarUp);
+            panelVar.Controls.Add(buttonVarDown);
+
+            mergePanelClass mergePanelObj = null;
+
+            int x = 0;
+            for (int i = 0; i <= 30; i++)
+            {
+                if (textBoxNum == pdfIconArray[i].getID())
+                {
+                    mergePanelObj = new mergePanelClass(panelVar, pdfIconArray[i].getPDFfilePath(), textBoxNum, pdfIconArray[i].getCheckBox());
+                    i = 31;
+                }
+            }
+
+            for (int i = 0; i <= 30; i++)
+            {
+                if (mergePanelArray[i] == null)
+                {
+                    mergePanelObj.setQue(i); // setPlacement
+                    mergePanelArray[i] = mergePanelObj;
+                    i = 31;
+                }
+                else
+                {
+                    //WE NEED TO DO SOMETHING HERE
+                }
+            }
+
+            tableLayoutPanel2.Controls.Add(mergePanelObj.getPanel());
+        }
+
+
+        //pleace file into textbox5
+        private void splitAction(object sender)
+        {
+
+            CheckBox checkBoxVar = sender as CheckBox;
+
+            //textBox1.Text = "Check box check " + checkBoxVar.Name;
+            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
+
+           
+            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath();
+            textBox5.Text = Path.GetFileName(splitFilePath);
+
+            for (int i = 0; i <= 30; i++)
+            {
+
+                if(pdfIconArray[i] != null && i != textBoxNum)
+                {
+                   
+                   pdfIconArray[i].getCheckBox().Checked = false;
+                    
+                }
+                else
+                {
+                    i = 31;
+                }
+                
+            }
 
 
 
         }
+
     }
 }

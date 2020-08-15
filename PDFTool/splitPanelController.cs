@@ -25,7 +25,7 @@ namespace PDFTool
         public splitPanelController(TextBox splitTextBoxInput1, TextBox splitTextBoxInput2,TextBox splitTextBoxInput3, Button splitButtonInput, Label splitLabelInput1, Label splitLabelInput2, Label splitLabelInput3)
         {
             splitTextbox1 = splitTextBoxInput1;
-            splitTextBox2 = splitTextBoxInput2;
+            splitTextBox2 = splitTextBoxInput2; 
             splitTextBox3 = splitTextBoxInput3;
             splitButton = splitButtonInput;
             splitLabel1 = splitLabelInput1;

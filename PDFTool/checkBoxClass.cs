@@ -16,6 +16,9 @@ namespace PDFTool
         int textBoxNum;
         CheckBox checkBoxVar;
 
+        List<Control> controlList = new List<Control>();
+   
+
 
         public checkBoxClass(bool mergeFlagInput, bool splitFlagInput, bool deleteFlagInput, int textBoxNumInput )
         {
@@ -23,6 +26,7 @@ namespace PDFTool
             splitFlag = splitFlagInput;
             deleteFlag = deleteFlagInput;
             textBoxNum = textBoxNumInput;
+            
         }
 
         public void checkBoxClick()
@@ -40,5 +44,7 @@ namespace PDFTool
 
             }
         }
+
+
     }
 }

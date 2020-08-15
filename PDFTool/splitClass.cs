@@ -7,18 +7,26 @@ using System.Web;
 using iText.Kernel.Pdf;
 using iText.Kernel.Utils;
 using System.IO;
+using System.Windows.Forms;
 
 namespace PDFTool
 {
-    class splitObject
+    class splitClass
     {
 
         private string fileToSplit;
 
-        public splitObject(string filepath)
+
+        public splitClass(string filepath)
         {
             fileToSplit = filepath;
         }
+
+        public string getFileName()
+        {
+            return Path.GetFileName(fileToSplit);
+        }
+
 
         public string splitRange(int low, int high)
         {
@@ -27,7 +35,19 @@ namespace PDFTool
             bool editVersion = false;
             string newVersion;
 
-            //string result = newLocation + "\\" + fileName.Replace(".pdf", "-Page" + low.ToString() + "to" + high.ToString() + ".pdf");
+            /*  NEED TO FIX THIS SHIT
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "PDF (*.pdf)| *.pdf";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.ShowDialog(); // user selected location is now stored in saveFileDialog1.Filename
+
+
+            if(saveFileDialog1.FileName != "")
+            { 
+            }
+            */
+
 
             String result = fileToSplit.Replace(".pdf", "-Page" + low.ToString() + "to" + high.ToString() + ".pdf");
 
@@ -80,6 +100,8 @@ namespace PDFTool
             PdfMerger merger = new PdfMerger(pdf);
 
             merger.Merge(firstPdf, low, high);
+
+
             // pdfs must be closed after they have been manuipulated or read from. 
             pdf.Close();
             firstPdf.Close();

@@ -34,7 +34,8 @@ namespace PDFTool
         bool splitFlag = false;
         bool deleteFlag = false;
 
-        string splitFilePath;
+        string splitFilePath = "";
+        CheckBox splitCheckBox;
 
 
         // mergePanelArray holds the names of the files that the user wants to be merged
@@ -522,10 +523,52 @@ namespace PDFTool
         /***********************************************/
         private void button1Merge_Click(object sender, EventArgs e)
         {
+            CheckBox checkBoxVar;
+
+            // perform specific action base on the previous mode of the program
+            if(splitFlag == true)
+            {   
+                splitFlag = false;
+                splitCheckBox.Checked = false;
+                textBox5.Text = "";
+                splitFilePath = "";
+            }
+            else if(deleteFlag == true)
+            {
+                deleteFlag = false;
+            }
             
-            if(!mergeFlag)
+            mergeFlag = true;
+           
+            for (int x = 0; x <= 30; x++)
+            {
+                if (mergePanelArray[x] == null)
+                {
+                    x = 31;
+                }
+                else
+                {
+                    //textBox1.Text += "[" + x + "]" + mergePanelArray[x].getfileName();
+                    checkBoxVar = mergePanelArray[x].getCheckBox();
+                    checkBoxVar.Checked = false;
+
+                    tableLayoutPanel2.Controls.Remove(mergePanelArray[x].getPanel());
+                    mergePanelArray[x] = null;
+                }
+            }
+
+            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+            splitPanelControllerObj.disableSplitView();
+
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
+            mergePanelControllerObj.enableMergeView();
+
+
+            /*
+            if (!mergeFlag)
             {
                 mergeFlag = true;
+                splitFlag = false;
                 splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
                 splitPanelControllerObj.disableSplitView();
 
@@ -534,7 +577,7 @@ namespace PDFTool
 
 
             }
-
+            */
             
         }
 
@@ -547,10 +590,18 @@ namespace PDFTool
         private void button2Split_Click(object sender, EventArgs e)
         {
             CheckBox checkBoxVar;
-            mergeFlag = false;
-            splitFlag = true;
-
             
+
+            if(deleteFlag == true)
+            {
+                deleteFlag = false;
+            }
+            else if(mergeFlag == true)
+            {
+                mergeFlag = false;
+            }
+
+            splitFlag = true;
 
             for (int x = 0; x <= 30; x++)
             {
@@ -568,7 +619,7 @@ namespace PDFTool
                     mergePanelArray[x] = null;
                 }
             }
-
+            
 
             mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1, label2);
             mergePanelControllerObj.disableMergeView();
@@ -590,6 +641,11 @@ namespace PDFTool
         /***********************************************/
         private void button3Delete_Click(object sender, EventArgs e)
         {
+            CheckBox checkBoxVar;
+            deleteFlag = true;
+
+            mergeFlag = false;
+            splitFlag = false;
 
         }
 
@@ -599,6 +655,12 @@ namespace PDFTool
         /***********************************************/
         private void button3_Click_2(object sender, EventArgs e)
         {
+           if(splitFilePath == "")
+            {
+                MessageBox.Show("Please select a PDF document first.");
+                return;
+            }
+
             int firstPage;
             int lastPage;
 
@@ -610,9 +672,6 @@ namespace PDFTool
 
             string fileTobeSplit = splitFilePath;
             
-
-            
-
             splitClass splitPDF = new splitClass(fileTobeSplit);
 
             string resultPDF;
@@ -643,30 +702,15 @@ namespace PDFTool
                         return;
                     default:
                         break;
-                }
-
-                string filename = Path.GetFileName(resultPDF);
-
-                FileInfo file = new FileInfo(resultPDF);
-                file.Directory.Create();
-
-                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-                saveFileDialog1.Filter = "PDF (*.pdf)| *.pdf";
-                saveFileDialog1.FilterIndex = 2;
-                saveFileDialog1.RestoreDirectory = true;
-                saveFileDialog1.ShowDialog();
-
-                if(saveFileDialog1.FileName != "")
-                {
-                    PdfDocument pdf = new PdfDocument(new PdfWriter(saveFileDialog1.FileName));
-                }
-
-                
-                
+                }  
 
             }
         }
 
+        /***********************************************/
+        // FUNCTION: void createMergeControllers()
+        // DESCRIPTION: function that creates all the controllers for the Merge Panel
+        /***********************************************/
         private void createMergeControllers(object sender)
         {
             CheckBox checkBoxVar = sender as CheckBox;
@@ -760,16 +804,21 @@ namespace PDFTool
 
 
         //pleace file into textbox5
+        /***********************************************/
+        // FUNCTION: void splitAction()
+        // DESCRIPTION: function that will split user selected document
+        /***********************************************/
         private void splitAction(object sender)
         {
 
             CheckBox checkBoxVar = sender as CheckBox;
+            splitCheckBox = checkBoxVar;
 
             //textBox1.Text = "Check box check " + checkBoxVar.Name;
             int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
 
            
-            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath();
+            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
             textBox5.Text = Path.GetFileName(splitFilePath);
 
             for (int i = 0; i <= 30; i++)

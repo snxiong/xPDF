@@ -47,6 +47,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel3FileHolder = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1AppMode.SuspendLayout();
             this.panel2ActionDetail.SuspendLayout();
             this.panel3FileHolder.SuspendLayout();
@@ -100,6 +104,10 @@
             // 
             // panel2ActionDetail
             // 
+            this.panel2ActionDetail.Controls.Add(this.button4);
+            this.panel2ActionDetail.Controls.Add(this.textBox6);
+            this.panel2ActionDetail.Controls.Add(this.label6);
+            this.panel2ActionDetail.Controls.Add(this.label5);
             this.panel2ActionDetail.Controls.Add(this.label4);
             this.panel2ActionDetail.Controls.Add(this.textBox5);
             this.panel2ActionDetail.Controls.Add(this.label3);
@@ -134,6 +142,7 @@
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(30, 125);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(250, 24);
             this.textBox5.TabIndex = 14;
             this.textBox5.Visible = false;
@@ -279,6 +288,51 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(480, 560);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(180, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 35);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Delete";
+            this.label5.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(45, 200);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(220, 72);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "              Delete Page\r\nExample: Deleteing multiple \r\npages \"3,5,7\", For delet" +
+    "eing \r\nsingle pages \"3\"";
+            this.label6.Visible = false;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(30, 300);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(250, 40);
+            this.textBox6.TabIndex = 18;
+            this.textBox6.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(30, 400);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(250, 30);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Delete Page";
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,6 +375,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button button4;
     }
 }
 

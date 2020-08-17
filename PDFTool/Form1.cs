@@ -17,6 +17,7 @@ using Org.BouncyCastle.Crypto.Engines;
 using System.Runtime.CompilerServices;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Linq.Expressions;
+using System.ComponentModel.Design;
 
 namespace PDFTool
 {
@@ -36,6 +37,7 @@ namespace PDFTool
 
         string splitFilePath = "";
         CheckBox splitCheckBox;
+
 
 
         // mergePanelArray holds the names of the files that the user wants to be merged
@@ -289,16 +291,27 @@ namespace PDFTool
                 }
                 else if(deleteFlag)
                 {
-
+                    deleteAction(sender);
                 }
                 
 
             }
             else
             {   // remove merge panel from the merge box table layout panel  
-                if(mergeFlag == true)
+                if(mergeFlag)
                 {
                     removeObjfromMergePanelArray(textBoxNum);
+                }
+                else if(splitFlag)
+                {
+                    textBox5.Text = "";
+                    splitFilePath = "";
+
+                }
+                else if(deleteFlag)
+                {
+                    textBox5.Text = "";
+                    splitFilePath = "";
                 }
 
             }
@@ -560,6 +573,9 @@ namespace PDFTool
             splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
             splitPanelControllerObj.disableSplitView();
 
+            deletePanelController deletePanelControllerObj = new deletePanelController(label5, label4, label6, textBox5, textBox6, button4);
+            deletePanelControllerObj.disableDeleteView();
+
             mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
             mergePanelControllerObj.enableMergeView();
 
@@ -590,7 +606,6 @@ namespace PDFTool
         private void button2Split_Click(object sender, EventArgs e)
         {
             CheckBox checkBoxVar;
-            
 
             if(deleteFlag == true)
             {
@@ -624,6 +639,8 @@ namespace PDFTool
             mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1, label2);
             mergePanelControllerObj.disableMergeView();
 
+            deletePanelController deletePanelControllerObj = new deletePanelController(label5, label4, label6, textBox5, textBox6, button4);
+            deletePanelControllerObj.disableDeleteView();
 
             splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
             splitPanelControllerObj.enableSplitView();
@@ -642,10 +659,26 @@ namespace PDFTool
         private void button3Delete_Click(object sender, EventArgs e)
         {
             CheckBox checkBoxVar;
+
+            if(mergeFlag == true)
+            {
+                mergeFlag = false;
+            }
+            else if(splitFlag == true)
+            {
+                splitFlag = false;
+            }
+
             deleteFlag = true;
 
-            mergeFlag = false;
-            splitFlag = false;
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
+            mergePanelControllerObj.disableMergeView();
+
+            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+            splitPanelControllerObj.disableSplitView();
+
+            deletePanelController deletePanelControllerObj = new deletePanelController(label5, label4, label6, textBox5, textBox6, button4);
+            deletePanelControllerObj.enableDeleteView();
 
         }
 
@@ -803,7 +836,6 @@ namespace PDFTool
         }
 
 
-        //pleace file into textbox5
         /***********************************************/
         // FUNCTION: void splitAction()
         // DESCRIPTION: function that will split user selected document
@@ -837,9 +869,92 @@ namespace PDFTool
                 
             }
 
+        }
 
+
+        /***********************************************/
+        // FUNCTION: void button4_Click()
+        // EVENTLISTENER: For button "Delete Page" that will delete pages from the user selected PDF files
+        /***********************************************/
+        private void button4_Click(object sender, EventArgs e)
+        {
+            deleteClass delObj = new deleteClass(splitFilePath);
+
+            if(textBox5.Text == "")
+            {   // user didn't select a file to delete a page from
+                MessageBox.Show("ERROR. Please select a file.");
+                return;
+            }
+
+            if(textBox6.Text == "")
+            {   // user didn't enter a page number to delete
+                MessageBox.Show("ERROR. Please enter a page number to delete.");
+                return;
+            }
+
+            bool passGetPages = delObj.getPagesToDel(textBox6.Text);
+
+            if(!passGetPages)
+            {
+                MessageBox.Show("ERROR: Please enter a valid number");
+                textBox6.Text = "";
+                return;
+            }
+
+            string newPDF = delObj.deletePage();
+
+
+            switch (newPDF)
+            {
+                case "1":
+                    MessageBox.Show("ERROR. There's only 1 page int he PDF file");
+                    return;
+                case "2":
+                    MessageBox.Show("ERROR. You've enter a page number that is larger then the last pag enumber");
+                    return;
+                case "3":
+                    MessageBox.Show("ERROR. You've entered page 0, there is no page 0.");
+                    return;
+                case "4":
+                    MessageBox.Show("ERROR. Can not delete the only page in the PDF file.");
+                    return;
+                case "5":
+                    MessageBox.Show("ERROR. PDF file must have at least 1 page in the PDF file.");
+                    return;
+                default:
+                    break;
+            }
 
         }
 
+        private void deleteAction(object sender)
+        {
+            CheckBox checkBoxVar = sender as CheckBox;
+
+            splitCheckBox = checkBoxVar;
+
+            //textBox1.Text = "Check box check " + checkBoxVar.Name;
+            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
+
+
+            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
+            textBox5.Text = Path.GetFileName(splitFilePath);
+
+            for (int i = 0; i <= 30; i++)
+            {
+
+                if (pdfIconArray[i] != null && i != textBoxNum)
+                {
+
+                    pdfIconArray[i].getCheckBox().Checked = false;
+
+                }
+                else
+                {
+                    i = 31;
+                }
+
+            }
+        }
     }
 }

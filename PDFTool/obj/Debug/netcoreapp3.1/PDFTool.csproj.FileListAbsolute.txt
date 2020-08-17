@@ -28,3 +28,4 @@ C:\Users\MiniSnxiong\source\repos\PDFTool\PDFTool\obj\Debug\netcoreapp3.1\PDFToo
 C:\Users\MiniSnxiong\source\repos\PDFTool\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.dll
 C:\Users\MiniSnxiong\source\repos\PDFTool\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.pdb
 C:\Users\MiniSnxiong\source\repos\PDFTool\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.genruntimeconfig.cache
+C:\Users\MiniSnxiong\source\repos\PDFTool\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csprojAssemblyReference.cache

@@ -48,10 +48,6 @@ namespace PDFTool
         pdfIconPanelClass[] pdfIconArray = new pdfIconPanelClass[30];
         pdfIconPanelClass[] pdfIconArrayCopy = new pdfIconPanelClass[30];
 
-        
-
-
-
 
         public Form1()
         {
@@ -542,7 +538,7 @@ namespace PDFTool
             if(splitFlag == true)
             {   
                 splitFlag = false;
-                splitCheckBox.Checked = false;
+                //splitCheckBox.Checked = false;
                 textBox5.Text = "";
                 splitFilePath = "";
             }
@@ -580,21 +576,6 @@ namespace PDFTool
             mergePanelControllerObj.enableMergeView();
 
 
-            /*
-            if (!mergeFlag)
-            {
-                mergeFlag = true;
-                splitFlag = false;
-                splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
-                splitPanelControllerObj.disableSplitView();
-
-                mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
-                mergePanelControllerObj.enableMergeView();
-
-
-            }
-            */
-            
         }
 
 
@@ -838,7 +819,7 @@ namespace PDFTool
 
         /***********************************************/
         // FUNCTION: void splitAction()
-        // DESCRIPTION: function that will split user selected document
+        // DESCRIPTION: split action that happens when the user checks a checkbox in the PDF icon
         /***********************************************/
         private void splitAction(object sender)
         {
@@ -849,7 +830,6 @@ namespace PDFTool
             //textBox1.Text = "Check box check " + checkBoxVar.Name;
             int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
 
-           
             splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
             textBox5.Text = Path.GetFileName(splitFilePath);
 
@@ -871,6 +851,39 @@ namespace PDFTool
 
         }
 
+        /***********************************************/
+        // FUNCTION: void deleteAction()
+        // DESCRIPTION: 
+        /***********************************************/
+        private void deleteAction(object sender)
+        {
+            CheckBox checkBoxVar = sender as CheckBox;
+
+            splitCheckBox = checkBoxVar;
+
+            //textBox1.Text = "Check box check " + checkBoxVar.Name;
+            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
+
+
+            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
+            textBox5.Text = Path.GetFileName(splitFilePath);
+
+            for (int i = 0; i <= 30; i++)
+            {
+
+                if (pdfIconArray[i] != null && i != textBoxNum)
+                {
+
+                    pdfIconArray[i].getCheckBox().Checked = false;
+
+                }
+                else
+                {
+                    i = 31;
+                }
+
+            }
+        }
 
         /***********************************************/
         // FUNCTION: void button4_Click()
@@ -927,34 +940,6 @@ namespace PDFTool
 
         }
 
-        private void deleteAction(object sender)
-        {
-            CheckBox checkBoxVar = sender as CheckBox;
-
-            splitCheckBox = checkBoxVar;
-
-            //textBox1.Text = "Check box check " + checkBoxVar.Name;
-            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
-
-
-            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
-            textBox5.Text = Path.GetFileName(splitFilePath);
-
-            for (int i = 0; i <= 30; i++)
-            {
-
-                if (pdfIconArray[i] != null && i != textBoxNum)
-                {
-
-                    pdfIconArray[i].getCheckBox().Checked = false;
-
-                }
-                else
-                {
-                    i = 31;
-                }
-
-            }
-        }
+        
     }
 }

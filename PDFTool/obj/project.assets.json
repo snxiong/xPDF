@@ -5275,11 +5275,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MiniSnxiong\\source\\repos\\PDFTool\\PDFTool\\PDFTool.csproj",
+      "projectUniqueName": "C:\\Users\\MiniSnxiong\\Source\\Repos\\xPDF\\PDFTool\\PDFTool.csproj",
       "projectName": "PDFTool",
-      "projectPath": "C:\\Users\\MiniSnxiong\\source\\repos\\PDFTool\\PDFTool\\PDFTool.csproj",
+      "projectPath": "C:\\Users\\MiniSnxiong\\Source\\Repos\\xPDF\\PDFTool\\PDFTool.csproj",
       "packagesPath": "C:\\Users\\MiniSnxiong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MiniSnxiong\\source\\repos\\PDFTool\\PDFTool\\obj\\",
+      "outputPath": "C:\\Users\\MiniSnxiong\\Source\\Repos\\xPDF\\PDFTool\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\MiniSnxiong\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -108,6 +108,7 @@
             // 
             // panel2ActionDetail
             // 
+            this.panel2ActionDetail.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel2ActionDetail.Controls.Add(this.button4);
             this.panel2ActionDetail.Controls.Add(this.textBox6);
             this.panel2ActionDetail.Controls.Add(this.label6);
@@ -158,6 +159,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(52, 231);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -171,6 +173,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.Control;
             this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(210, 12);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -183,6 +186,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(35, 115);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -206,6 +210,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(35, 231);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -295,6 +300,7 @@
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(35, 81);
@@ -331,6 +337,7 @@
             // 
             // panel3FileHolder
             // 
+            this.panel3FileHolder.BackColor = System.Drawing.SystemColors.Highlight;
             this.panel3FileHolder.Controls.Add(this.tableLayoutPanel1);
             this.panel3FileHolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3FileHolder.Location = new System.Drawing.Point(175, 0);
@@ -341,6 +348,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));

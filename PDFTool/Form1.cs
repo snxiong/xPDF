@@ -36,7 +36,10 @@ namespace PDFTool
         bool deleteFlag = false;
 
         string splitFilePath = "";
-        CheckBox splitCheckBox;
+        CheckBox splitCheckBox = null;
+
+        string deleteFilePath = "";
+        CheckBox deleteCheckBox = null;
 
 
 
@@ -825,6 +828,13 @@ namespace PDFTool
         {
 
             CheckBox checkBoxVar = sender as CheckBox;
+            if(splitCheckBox != null)
+            {
+                if(splitCheckBox.Checked == true)
+                {
+                    splitCheckBox.Checked = false;
+                }
+            }
             splitCheckBox = checkBoxVar;
 
             //textBox1.Text = "Check box check " + checkBoxVar.Name;
@@ -859,14 +869,22 @@ namespace PDFTool
         {
             CheckBox checkBoxVar = sender as CheckBox;
 
-            splitCheckBox = checkBoxVar;
+            if(deleteCheckBox != null)
+            {
+                if(deleteCheckBox.Checked == true)
+                {
+                    deleteCheckBox.Checked = false;
+                }
+            }
+
+            deleteCheckBox = checkBoxVar;
 
             //textBox1.Text = "Check box check " + checkBoxVar.Name;
             int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
 
 
-            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
-            textBox5.Text = Path.GetFileName(splitFilePath);
+            deleteFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
+            textBox5.Text = Path.GetFileName(deleteFilePath);
 
             for (int i = 0; i <= 30; i++)
             {
@@ -891,7 +909,7 @@ namespace PDFTool
         /***********************************************/
         private void button4_Click(object sender, EventArgs e)
         {
-            deleteClass delObj = new deleteClass(splitFilePath);
+            deleteClass delObj = new deleteClass(deleteFilePath);
 
             if(textBox5.Text == "")
             {   // user didn't select a file to delete a page from

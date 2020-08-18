@@ -51,11 +51,13 @@ namespace PDFTool
         pdfIconPanelClass[] pdfIconArray = new pdfIconPanelClass[30];
         pdfIconPanelClass[] pdfIconArrayCopy = new pdfIconPanelClass[30];
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
         public Form1()
         {
             InitializeComponent();
-           // textBox1.Visible = false;
           
         }
         
@@ -295,7 +297,7 @@ namespace PDFTool
                 
 
             }
-            else
+            else   // else the action below happens when the check box are unchecked.
             {   // remove merge panel from the merge box table layout panel  
                 if(mergeFlag)
                 {
@@ -305,15 +307,22 @@ namespace PDFTool
                 {
                     textBox5.Text = "";
                     splitFilePath = "";
+                    singleCheckBox(sender);
 
                 }
                 else if(deleteFlag)
                 {
                     textBox5.Text = "";
                     splitFilePath = "";
+                    singleCheckBox(sender);
                 }
 
             }
+
+        }
+
+        private void singleCheckBox(object sender)
+        {
 
         }
 
@@ -577,8 +586,12 @@ namespace PDFTool
 
             mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
             mergePanelControllerObj.enableMergeView();
+<<<<<<< HEAD
 
 
+=======
+            
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
         }
 
 
@@ -590,8 +603,9 @@ namespace PDFTool
         private void button2Split_Click(object sender, EventArgs e)
         {
             CheckBox checkBoxVar;
+            
 
-            if(deleteFlag == true)
+            if (deleteFlag == true)
             {
                 deleteFlag = false;
             }
@@ -629,10 +643,6 @@ namespace PDFTool
             splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
             splitPanelControllerObj.enableSplitView();
 
-
-
-
-
         }
 
         /***********************************************/
@@ -643,8 +653,9 @@ namespace PDFTool
         private void button3Delete_Click(object sender, EventArgs e)
         {
             CheckBox checkBoxVar;
+         
 
-            if(mergeFlag == true)
+            if (mergeFlag == true)
             {
                 mergeFlag = false;
             }
@@ -958,6 +969,42 @@ namespace PDFTool
 
         }
 
+<<<<<<< HEAD
         
+=======
+
+
+        private void deleteAction(object sender)
+        {
+            CheckBox checkBoxVar = sender as CheckBox;
+
+            splitCheckBox = checkBoxVar;
+
+            //textBox1.Text = "Check box check " + checkBoxVar.Name;
+            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
+
+
+            splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
+            textBox5.Text = Path.GetFileName(splitFilePath);
+
+            for (int i = 0; i <= 30; i++)
+            {
+
+                if (pdfIconArray[i] != null && i != textBoxNum)
+                {
+
+                    pdfIconArray[i].getCheckBox().Checked = false;
+
+                }
+                else
+                {
+                    i = 31;
+                }
+
+            }
+        }
+
+       
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
     }
 }

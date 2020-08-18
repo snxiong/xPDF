@@ -159,7 +159,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
+<<<<<<< HEAD
             this.label6.BackColor = System.Drawing.SystemColors.Control;
+=======
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(52, 231);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -173,7 +176,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
+<<<<<<< HEAD
             this.label5.BackColor = System.Drawing.SystemColors.Control;
+=======
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
             this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(210, 12);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -186,7 +192,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+<<<<<<< HEAD
             this.label4.BackColor = System.Drawing.SystemColors.Control;
+=======
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(35, 115);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -206,11 +215,15 @@
             this.textBox5.Size = new System.Drawing.Size(291, 24);
             this.textBox5.TabIndex = 14;
             this.textBox5.Visible = false;
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+<<<<<<< HEAD
             this.label3.BackColor = System.Drawing.SystemColors.Control;
+=======
+>>>>>>> 53e892d4033f1fc06be35c3243fedf7d968937e0
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(35, 231);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);

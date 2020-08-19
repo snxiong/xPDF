@@ -51,12 +51,15 @@ C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Microsoft
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csprojAssemblyReference.cache
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.Form1.resources
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.Properties.Resources.resources
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.GenerateResource.cache
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.CoreCompileInputs.cache
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.CopyComplete
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.dll
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.pdb
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.genruntimeconfig.cache
+C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csprojAssemblyReference.cache
+C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\ButtonCircle.FormsPlugin.Abstractions.dll
+C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Xamarin.Forms.Core.dll
+C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Xamarin.Forms.Platform.dll
+C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Xamarin.Forms.Xaml.dll

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1AppMode = new System.Windows.Forms.Panel();
             this.button3Delete = new System.Windows.Forms.Button();
             this.button2Split = new System.Windows.Forms.Button();
@@ -96,8 +95,7 @@
             // button1Merge
             // 
             this.button1Merge.AllowDrop = true;
-            this.button1Merge.BackColor = System.Drawing.SystemColors.GrayText;
-            this.button1Merge.Image = ((System.Drawing.Image)(resources.GetObject("GradientButton1.Image")));
+            this.button1Merge.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1Merge.Location = new System.Drawing.Point(0, 0);
             this.button1Merge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1Merge.Name = "button1Merge";
@@ -340,6 +338,7 @@
             this.panel3FileHolder.Name = "panel3FileHolder";
             this.panel3FileHolder.Size = new System.Drawing.Size(642, 692);
             this.panel3FileHolder.TabIndex = 0;
+            this.panel3FileHolder.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3FileHolder_Paint);
             // 
             // tableLayoutPanel1
             // 

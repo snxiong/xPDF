@@ -940,6 +940,9 @@ namespace PDFTool
 
         }
 
-        
+        private void panel3FileHolder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

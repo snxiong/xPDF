@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1AppMode = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.button3Delete = new System.Windows.Forms.Button();
             this.button2Split = new System.Windows.Forms.Button();
             this.button1Merge = new System.Windows.Forms.Button();
@@ -52,12 +55,15 @@
             this.panel3FileHolder = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1AppMode.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel2ActionDetail.SuspendLayout();
             this.panel3FileHolder.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1AppMode
             // 
+            this.panel1AppMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel1AppMode.Controls.Add(this.panel1);
             this.panel1AppMode.Controls.Add(this.button3Delete);
             this.panel1AppMode.Controls.Add(this.button2Split);
             this.panel1AppMode.Controls.Add(this.button1Merge);
@@ -68,10 +74,32 @@
             this.panel1AppMode.Size = new System.Drawing.Size(175, 692);
             this.panel1AppMode.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Font = new System.Drawing.Font("Monotype Corsiva", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(175, 107);
+            this.panel1.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label8.Location = new System.Drawing.Point(12, 23);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(137, 57);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "xPDF";
+            // 
             // button3Delete
             // 
             this.button3Delete.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3Delete.Location = new System.Drawing.Point(0, 346);
+            this.button3Delete.Image = ((System.Drawing.Image)(resources.GetObject("button3Delete.Image")));
+            this.button3Delete.Location = new System.Drawing.Point(0, 519);
             this.button3Delete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button3Delete.Name = "button3Delete";
             this.button3Delete.Size = new System.Drawing.Size(175, 173);
@@ -82,32 +110,44 @@
             // 
             // button2Split
             // 
-            this.button2Split.BackColor = System.Drawing.SystemColors.GrayText;
-            this.button2Split.Location = new System.Drawing.Point(0, 173);
+            this.button2Split.BackColor = System.Drawing.Color.Transparent;
+            this.button2Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2Split.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2Split.ForeColor = System.Drawing.Color.LightGray;
+            this.button2Split.Image = ((System.Drawing.Image)(resources.GetObject("button2Split.Image")));
+            this.button2Split.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2Split.Location = new System.Drawing.Point(0, 231);
             this.button2Split.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2Split.Name = "button2Split";
-            this.button2Split.Size = new System.Drawing.Size(175, 173);
+            this.button2Split.Size = new System.Drawing.Size(175, 145);
             this.button2Split.TabIndex = 1;
-            this.button2Split.Text = "Split";
+            this.button2Split.Text = "\r\n\r\n\r\n\r\nSplit";
             this.button2Split.UseVisualStyleBackColor = false;
             this.button2Split.Click += new System.EventHandler(this.button2Split_Click);
             // 
             // button1Merge
             // 
             this.button1Merge.AllowDrop = true;
-            this.button1Merge.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button1Merge.Location = new System.Drawing.Point(0, 0);
+            this.button1Merge.BackColor = System.Drawing.Color.Transparent;
+            this.button1Merge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1Merge.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1Merge.ForeColor = System.Drawing.Color.LightGray;
+            this.button1Merge.Image = ((System.Drawing.Image)(resources.GetObject("button1Merge.Image")));
+            this.button1Merge.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1Merge.Location = new System.Drawing.Point(0, 107);
             this.button1Merge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1Merge.Name = "button1Merge";
-            this.button1Merge.Size = new System.Drawing.Size(175, 173);
+            this.button1Merge.Size = new System.Drawing.Size(175, 130);
             this.button1Merge.TabIndex = 0;
-            this.button1Merge.Text = "Merge";
+            this.button1Merge.TabStop = false;
+            this.button1Merge.Text = "\r\n\r\n\r\n\r\n\r\nMerge";
             this.button1Merge.UseVisualStyleBackColor = false;
             this.button1Merge.UseWaitCursor = true;
             this.button1Merge.Click += new System.EventHandler(this.button1Merge_Click);
             // 
             // panel2ActionDetail
             // 
+            this.panel2ActionDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.panel2ActionDetail.Controls.Add(this.button4);
             this.panel2ActionDetail.Controls.Add(this.textBox6);
             this.panel2ActionDetail.Controls.Add(this.label6);
@@ -331,6 +371,7 @@
             // 
             // panel3FileHolder
             // 
+            this.panel3FileHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.panel3FileHolder.Controls.Add(this.tableLayoutPanel1);
             this.panel3FileHolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3FileHolder.Location = new System.Drawing.Point(175, 0);
@@ -365,11 +406,13 @@
             this.Controls.Add(this.panel3FileHolder);
             this.Controls.Add(this.panel2ActionDetail);
             this.Controls.Add(this.panel1AppMode);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "Form1";
             this.panel1AppMode.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel2ActionDetail.ResumeLayout(false);
             this.panel2ActionDetail.PerformLayout();
             this.panel3FileHolder.ResumeLayout(false);
@@ -404,6 +447,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label8;
     }
 }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7aQ+MO9mZ0EPSDPpk28r6/cFC4/9w9QppXGN3wxq6G0C5OFcpDWjoMbfDuawqDDGa7xff0VJp4TnJ4WEnf5fMg==",
+  "dgSpecHash": "7aEUoH2bNGVFDRRQ4jZKUzeXEvlMxCzETSNOBzF8TvoPp2uNYWNd736SLyxM2wxTMzX7Ai1Q9AxISsXbMX2erw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MiniSnxiong\\Source\\Repos\\xPDF\\PDFTool\\PDFTool.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,9 @@
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\microsoft.win32.registry\\4.3.0\\microsoft.win32.registry.4.3.0.nupkg.sha512",
+    "C:\\Users\\MiniSnxiong\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512",
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
+    "C:\\Users\\MiniSnxiong\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\portable.bouncycastle\\1.8.5\\portable.bouncycastle.1.8.5.nupkg.sha512",
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\MiniSnxiong\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

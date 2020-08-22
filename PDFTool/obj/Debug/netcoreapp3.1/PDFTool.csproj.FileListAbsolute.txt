@@ -58,8 +58,6 @@ C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.c
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.dll
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.pdb
 C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.genruntimeconfig.cache
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csprojAssemblyReference.cache
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\ButtonCircle.FormsPlugin.Abstractions.dll
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Xamarin.Forms.Core.dll
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Xamarin.Forms.Platform.dll
-C:\Users\MiniSnxiong\Source\Repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\Xamarin.Forms.Xaml.dll
+C:\Users\MiniSnxiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.CoreCompileInputs.cache
+C:\Users\MiniSnxiong\source\repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\DevContent\PDFSAMPLE.pdf
+C:\Users\MiniSnxiong\source\repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\nunit.framework.dll

@@ -29,22 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panel1AppMode = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button3Delete = new System.Windows.Forms.Button();
+            this.button3Delete = new System.Windows.Forms.Panel();
+            this.button3Delete2 = new System.Windows.Forms.Button();
             this.button2Split = new System.Windows.Forms.Button();
             this.button1Merge = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button3Delete22 = new System.Windows.Forms.Button();
+            this.button2Split22 = new System.Windows.Forms.Button();
+            this.button1Merge22 = new System.Windows.Forms.Button();
             this.panel2ActionDetail = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -54,25 +58,75 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel3FileHolder = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1AppMode.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button3Delete.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2ActionDetail.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel3FileHolder.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1AppMode
+            // button3Delete
             // 
-            this.panel1AppMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
-            this.panel1AppMode.Controls.Add(this.panel1);
-            this.panel1AppMode.Controls.Add(this.button3Delete);
-            this.panel1AppMode.Controls.Add(this.button2Split);
-            this.panel1AppMode.Controls.Add(this.button1Merge);
-            this.panel1AppMode.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1AppMode.Location = new System.Drawing.Point(0, 0);
-            this.panel1AppMode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1AppMode.Name = "panel1AppMode";
-            this.panel1AppMode.Size = new System.Drawing.Size(175, 692);
-            this.panel1AppMode.TabIndex = 0;
+            this.button3Delete.AllowDrop = true;
+            this.button3Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.button3Delete.Controls.Add(this.button3Delete2);
+            this.button3Delete.Controls.Add(this.button2Split);
+            this.button3Delete.Controls.Add(this.button1Merge);
+            this.button3Delete.Controls.Add(this.panel1);
+            this.button3Delete.Controls.Add(this.button3Delete22);
+            this.button3Delete.Controls.Add(this.button2Split22);
+            this.button3Delete.Controls.Add(this.button1Merge22);
+            this.button3Delete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button3Delete.Location = new System.Drawing.Point(0, 0);
+            this.button3Delete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button3Delete.Name = "button3Delete";
+            this.button3Delete.Size = new System.Drawing.Size(175, 741);
+            this.button3Delete.TabIndex = 0;
+            this.button3Delete.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1AppMode_Paint);
+            // 
+            // button3Delete2
+            // 
+            this.button3Delete2.FlatAppearance.BorderSize = 0;
+            this.button3Delete2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3Delete2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3Delete2.ForeColor = System.Drawing.Color.Silver;
+            this.button3Delete2.Location = new System.Drawing.Point(0, 373);
+            this.button3Delete2.Name = "button3Delete2";
+            this.button3Delete2.Size = new System.Drawing.Size(175, 130);
+            this.button3Delete2.TabIndex = 4;
+            this.button3Delete2.Text = "Delete";
+            this.button3Delete2.UseVisualStyleBackColor = true;
+            this.button3Delete2.Click += new System.EventHandler(this.button3Delete_Click);
+            // 
+            // button2Split
+            // 
+            this.button2Split.FlatAppearance.BorderSize = 0;
+            this.button2Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2Split.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2Split.ForeColor = System.Drawing.Color.Silver;
+            this.button2Split.Location = new System.Drawing.Point(0, 237);
+            this.button2Split.Name = "button2Split";
+            this.button2Split.Size = new System.Drawing.Size(175, 130);
+            this.button2Split.TabIndex = 4;
+            this.button2Split.Text = "Split";
+            this.button2Split.UseVisualStyleBackColor = true;
+            this.button2Split.Click += new System.EventHandler(this.button2Split_Click);
+            // 
+            // button1Merge
+            // 
+            this.button1Merge.FlatAppearance.BorderSize = 0;
+            this.button1Merge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1Merge.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1Merge.ForeColor = System.Drawing.Color.Silver;
+            this.button1Merge.Location = new System.Drawing.Point(0, 103);
+            this.button1Merge.Name = "button1Merge";
+            this.button1Merge.Size = new System.Drawing.Size(175, 130);
+            this.button1Merge.TabIndex = 4;
+            this.button1Merge.Text = "Merge";
+            this.button1Merge.UseVisualStyleBackColor = true;
+            this.button1Merge.Click += new System.EventHandler(this.button1Merge_Click);
             // 
             // panel1
             // 
@@ -83,6 +137,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(175, 107);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label8
             // 
@@ -95,68 +150,73 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "xPDF";
             // 
-            // button3Delete
+            // button3Delete22
             // 
-            this.button3Delete.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3Delete.Image = ((System.Drawing.Image)(resources.GetObject("button3Delete.Image")));
-            this.button3Delete.Location = new System.Drawing.Point(0, 519);
-            this.button3Delete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button3Delete.Name = "button3Delete";
-            this.button3Delete.Size = new System.Drawing.Size(175, 173);
-            this.button3Delete.TabIndex = 2;
-            this.button3Delete.Text = "Delete";
-            this.button3Delete.UseVisualStyleBackColor = false;
-            this.button3Delete.Click += new System.EventHandler(this.button3Delete_Click);
+            this.button3Delete22.BackColor = System.Drawing.Color.Transparent;
+            this.button3Delete22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3Delete22.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3Delete22.ForeColor = System.Drawing.Color.Silver;
+            this.button3Delete22.Image = ((System.Drawing.Image)(resources.GetObject("button3Delete22.Image")));
+            this.button3Delete22.Location = new System.Drawing.Point(0, 562);
+            this.button3Delete22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button3Delete22.Name = "button3Delete22";
+            this.button3Delete22.Size = new System.Drawing.Size(175, 130);
+            this.button3Delete22.TabIndex = 2;
+            this.button3Delete22.Text = "Delete";
+            this.button3Delete22.UseVisualStyleBackColor = false;
+            this.button3Delete22.Visible = false;
+            this.button3Delete22.Click += new System.EventHandler(this.button3Delete_Click);
             // 
-            // button2Split
+            // button2Split22
             // 
-            this.button2Split.BackColor = System.Drawing.Color.Transparent;
-            this.button2Split.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2Split.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2Split.ForeColor = System.Drawing.Color.LightGray;
-            this.button2Split.Image = ((System.Drawing.Image)(resources.GetObject("button2Split.Image")));
-            this.button2Split.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2Split.Location = new System.Drawing.Point(0, 231);
-            this.button2Split.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button2Split.Name = "button2Split";
-            this.button2Split.Size = new System.Drawing.Size(175, 145);
-            this.button2Split.TabIndex = 1;
-            this.button2Split.Text = "\r\n\r\n\r\n\r\nSplit";
-            this.button2Split.UseVisualStyleBackColor = false;
-            this.button2Split.Click += new System.EventHandler(this.button2Split_Click);
+            this.button2Split22.BackColor = System.Drawing.Color.Transparent;
+            this.button2Split22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2Split22.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2Split22.ForeColor = System.Drawing.Color.Silver;
+            this.button2Split22.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button2Split22.Location = new System.Drawing.Point(0, 545);
+            this.button2Split22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button2Split22.Name = "button2Split22";
+            this.button2Split22.Size = new System.Drawing.Size(175, 130);
+            this.button2Split22.TabIndex = 1;
+            this.button2Split22.Text = "Split";
+            this.button2Split22.UseVisualStyleBackColor = false;
+            this.button2Split22.Visible = false;
+            this.button2Split22.Click += new System.EventHandler(this.button2Split_Click);
             // 
-            // button1Merge
+            // button1Merge22
             // 
-            this.button1Merge.AllowDrop = true;
-            this.button1Merge.BackColor = System.Drawing.Color.Transparent;
-            this.button1Merge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1Merge.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1Merge.ForeColor = System.Drawing.Color.LightGray;
-            this.button1Merge.Image = ((System.Drawing.Image)(resources.GetObject("button1Merge.Image")));
-            this.button1Merge.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1Merge.Location = new System.Drawing.Point(0, 107);
-            this.button1Merge.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1Merge.Name = "button1Merge";
-            this.button1Merge.Size = new System.Drawing.Size(175, 130);
-            this.button1Merge.TabIndex = 0;
-            this.button1Merge.TabStop = false;
-            this.button1Merge.Text = "\r\n\r\n\r\n\r\n\r\nMerge";
-            this.button1Merge.UseVisualStyleBackColor = false;
-            this.button1Merge.UseWaitCursor = true;
-            this.button1Merge.Click += new System.EventHandler(this.button1Merge_Click);
+            this.button1Merge22.AllowDrop = true;
+            this.button1Merge22.BackColor = System.Drawing.Color.Transparent;
+            this.button1Merge22.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1Merge22.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1Merge22.ForeColor = System.Drawing.Color.Silver;
+            this.button1Merge22.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1Merge22.Location = new System.Drawing.Point(0, 519);
+            this.button1Merge22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1Merge22.Name = "button1Merge22";
+            this.button1Merge22.Size = new System.Drawing.Size(175, 130);
+            this.button1Merge22.TabIndex = 0;
+            this.button1Merge22.TabStop = false;
+            this.button1Merge22.Text = "Merge";
+            this.button1Merge22.UseVisualStyleBackColor = false;
+            this.button1Merge22.UseWaitCursor = true;
+            this.button1Merge22.Visible = false;
+            this.button1Merge22.Click += new System.EventHandler(this.button1Merge_Click);
+            this.button1Merge22.MouseLeave += new System.EventHandler(this.button1Merge_Leave);
+            this.button1Merge22.MouseHover += new System.EventHandler(this.button1Merge_Hover);
+            this.button1Merge22.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1Merge_Hover);
             // 
             // panel2ActionDetail
             // 
             this.panel2ActionDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel2ActionDetail.Controls.Add(this.panel2);
             this.panel2ActionDetail.Controls.Add(this.button4);
             this.panel2ActionDetail.Controls.Add(this.textBox6);
             this.panel2ActionDetail.Controls.Add(this.label6);
-            this.panel2ActionDetail.Controls.Add(this.label5);
             this.panel2ActionDetail.Controls.Add(this.label4);
             this.panel2ActionDetail.Controls.Add(this.textBox5);
             this.panel2ActionDetail.Controls.Add(this.label3);
-            this.panel2ActionDetail.Controls.Add(this.label2);
-            this.panel2ActionDetail.Controls.Add(this.label1);
             this.panel2ActionDetail.Controls.Add(this.button3);
             this.panel2ActionDetail.Controls.Add(this.textBox4);
             this.panel2ActionDetail.Controls.Add(this.textBox3);
@@ -168,8 +228,60 @@
             this.panel2ActionDetail.Location = new System.Drawing.Point(817, 0);
             this.panel2ActionDetail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2ActionDetail.Name = "panel2ActionDetail";
-            this.panel2ActionDetail.Size = new System.Drawing.Size(350, 692);
+            this.panel2ActionDetail.Size = new System.Drawing.Size(350, 741);
             this.panel2ActionDetail.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Teal;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(150, 50);
+            this.panel2.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(20, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(107, 36);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Merge";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(20, 6);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 36);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Delete";
+            this.label5.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(20, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 36);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Split";
+            this.label1.Visible = false;
             // 
             // button4
             // 
@@ -198,85 +310,53 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(52, 231);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(220, 72);
+            this.label6.Size = new System.Drawing.Size(219, 72);
             this.label6.TabIndex = 17;
             this.label6.Text = "              Delete Page\r\nExample: Deleteing multiple \r\npages \"3,5,7\", For delet" +
     "eing \r\nsingle pages \"3\"";
             this.label6.Visible = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(210, 12);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 35);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Delete";
-            this.label5.Visible = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(35, 115);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(36, 107);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 20);
+            this.label4.Size = new System.Drawing.Size(70, 36);
             this.label4.TabIndex = 15;
             this.label4.Text = "File:";
             this.label4.Visible = false;
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBox5.Location = new System.Drawing.Point(35, 144);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(291, 24);
+            this.textBox5.Size = new System.Drawing.Size(291, 40);
             this.textBox5.TabIndex = 14;
             this.textBox5.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(35, 231);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(247, 54);
+            this.label3.Size = new System.Drawing.Size(239, 54);
             this.label3.TabIndex = 13;
             this.label3.Text = "              Page Range\r\nExample: If you want pages 4-6,\r\n enter \'4\' and \'6\'";
             this.label3.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(210, 12);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 35);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Merge";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(210, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 35);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Split";
-            this.label1.Visible = false;
             // 
             // button3
             // 
@@ -332,6 +412,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(291, 23);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -359,7 +441,12 @@
             // 
             // button2
             // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(58, 23);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
@@ -372,12 +459,13 @@
             // panel3FileHolder
             // 
             this.panel3FileHolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            this.panel3FileHolder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3FileHolder.Controls.Add(this.tableLayoutPanel1);
             this.panel3FileHolder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3FileHolder.Location = new System.Drawing.Point(175, 0);
             this.panel3FileHolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3FileHolder.Name = "panel3FileHolder";
-            this.panel3FileHolder.Size = new System.Drawing.Size(642, 692);
+            this.panel3FileHolder.Size = new System.Drawing.Size(642, 741);
             this.panel3FileHolder.TabIndex = 0;
             this.panel3FileHolder.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3FileHolder_Paint);
             // 
@@ -387,6 +475,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 187F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(41, 23);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -395,37 +484,51 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 646);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(560, 690);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(181, 167);
+            this.panel3.TabIndex = 0;
+            this.panel3.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 692);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1167, 741);
             this.Controls.Add(this.panel3FileHolder);
             this.Controls.Add(this.panel2ActionDetail);
-            this.Controls.Add(this.panel1AppMode);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.button3Delete);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.panel1AppMode.ResumeLayout(false);
+            this.button3Delete.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2ActionDetail.ResumeLayout(false);
             this.panel2ActionDetail.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3FileHolder.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1AppMode;
-        private System.Windows.Forms.Button button3Delete;
-        private System.Windows.Forms.Button button2Split;
-        private System.Windows.Forms.Button button1Merge;
+        private System.Windows.Forms.Panel button3Delete;
+        private System.Windows.Forms.Button button3Delete22;
+        private System.Windows.Forms.Button button2Split22;
+        private System.Windows.Forms.Button button1Merge22;
         private System.Windows.Forms.Panel panel2ActionDetail;
         private System.Windows.Forms.Panel panel3FileHolder;
         private System.Windows.Forms.Button button2;
@@ -433,7 +536,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        //private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
@@ -449,6 +552,11 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1Merge;
+        private System.Windows.Forms.Button button2Split;
+        private System.Windows.Forms.Button button3Delete2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

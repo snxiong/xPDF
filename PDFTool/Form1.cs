@@ -18,11 +18,13 @@ using System.Runtime.CompilerServices;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Linq.Expressions;
 using System.ComponentModel.Design;
+using iText.StyledXmlParser.Jsoup.Safety;
 
 namespace PDFTool
 {
     public partial class Form1 : Form
     {
+      
         int currentNum = 0;
         
         string panelName = "pdfPanel1";
@@ -63,6 +65,8 @@ namespace PDFTool
         /***********************************************/
         private void button2_Click(object sender, EventArgs e)
         {
+           
+
             // pdfFileClass newPDFFile = new pdfFileClass();
             string fileName = "";
             pdfIconPanelClass pdfIconObj = new pdfIconPanelClass();
@@ -103,6 +107,7 @@ namespace PDFTool
                     i = 31;
                 }
             }
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 
             textBox1.Text = " currentNum = " + currentNum;
 
@@ -116,6 +121,8 @@ namespace PDFTool
             Panel newPanel = new Panel();
             newPanel.Name = panelName;  // Setting the new name of the PDF panel
             newPanel.Size = new System.Drawing.Size(160,150);
+            newPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            newPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             //panelArray[currentNum] = newPanel;  //place the new panel in a panel array
 
             tableLayoutPanel1.Controls.Add(newPanel);   // adding the new PANEL to the tableLayoutPanel
@@ -140,6 +147,8 @@ namespace PDFTool
 
             newButton.Location = new Point(51, 116);
             newButton.Size = new System.Drawing.Size(75,23);
+            newButton.BackColor = System.Drawing.Color.White;
+
 
             newButton.Click += new System.EventHandler(this.delete_Function);
             
@@ -202,6 +211,15 @@ namespace PDFTool
 
             newTextBox.Text = fileName;
             //newTextBox.Text = "PDF File #" + currentNum.ToString();
+
+        }
+
+        /***********************************************/
+        // FUNCTION: void autoscroll_Function()
+        // EVENTLISTENER: function to decide if auto scroll should be turned on
+        /***********************************************/
+        public void autoscroll_Function()
+        {
 
         }
 
@@ -578,6 +596,16 @@ namespace PDFTool
 
         }
 
+        private void button1Merge_Hover(object sender, EventArgs e)
+        {
+            this.button1Merge22.ForeColor = System.Drawing.Color.Red;
+        }
+
+        private void button1Merge_Leave(object sender, EventArgs e)
+        {
+            this.button1Merge22.ForeColor = System.Drawing.Color.Silver;
+        }
+
 
         /***********************************************/
         // FUNCTION: void button2Split_Click()
@@ -751,6 +779,7 @@ namespace PDFTool
             buttonVarUp.Size = new System.Drawing.Size(22, 22);
             buttonVarUp.Location = new Point(195, 7);
             buttonVarUp.Click += new System.EventHandler(this.up_Function);
+            buttonVarUp.BackColor = System.Drawing.Color.White;
 
             //=====================================
             //=========CREATES NEW BUTTON==========
@@ -762,6 +791,7 @@ namespace PDFTool
             buttonVarDown.Size = new System.Drawing.Size(22, 22);
             buttonVarDown.Location = new Point(220, 7);
             buttonVarDown.Click += new System.EventHandler(this.down_Function);
+            buttonVarDown.BackColor = System.Drawing.Color.White;
 
             //=====================================
             //========CREATES NEW TEXTBOX==========
@@ -941,6 +971,26 @@ namespace PDFTool
         }
 
         private void panel3FileHolder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1Merge_Hover(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel1AppMode_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

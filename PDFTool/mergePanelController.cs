@@ -45,7 +45,7 @@ namespace PDFTool
            // addPDFButton.Visible = false;
             mergeButton.Visible = false;
             mergeTableLayoutPanel.Visible = false;
-            textBoxMerge.Visible = false;
+           // textBoxMerge.Visible = false;
             mergeLabel.Visible = false;
         }
 
@@ -58,7 +58,7 @@ namespace PDFTool
            // addPDFButton.Visible = true;
             mergeButton.Visible = true;
             mergeTableLayoutPanel.Visible = true;
-            textBoxMerge.Visible = true;
+           // textBoxMerge.Visible = true;
             mergeLabel.Visible = true;
         }
     }

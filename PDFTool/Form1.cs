@@ -169,9 +169,13 @@ namespace PDFTool
 
             newPanel.Controls.Add(newPictureBox1);  // adding the new picturebox to the new PANEL
 
-            newPictureBox1.Location = new Point(40,30); // Setting the picturebox location in the PANEL
+            newPictureBox1.Location = new Point(30,30); // Setting the picturebox location in the PANEL
+            newPictureBox1.Size = new System.Drawing.Size(100, 80);
 
-            newPictureBox1.ImageLocation = "C:\\Users\\MiniSnxiong\\Desktop\\PDFicon.png"; // add a picture into the picturebox
+            newPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage"))); // add a picture into the picturebox
+            newPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            newPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+     
 
             //=======================================
             //==========CREATE NEW CHECKBOX==========
@@ -188,10 +192,11 @@ namespace PDFTool
             newPanel.Controls.Add(newCheckBox);     // adding the new checkbox to the new PANEL
 
             newCheckBox.Location = new Point(30,120);   // Setting the checkBox location in the PANEL
+            newCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             pdfIconObj.setCheckBox(newCheckBox);
 
             pdfIconArray[currentNum] = pdfIconObj;
-
+            
 
             //======================================
             //==========CREATE NEW TEXTBOX==========
@@ -280,7 +285,7 @@ namespace PDFTool
         /***********************************************/
         // FUNCTION: void check_Function()
         // EVENTLISTENER: for the Checkbox that is checked in the middle panel, will create 
-        //                Controllers that represents the PDF file in the merge Panel on the left hand side of the program
+        //                Controllers that represents the PDF file in the merge Panel on the right hand side of the program
         /***********************************************/
         private void check_Function(object sender, EventArgs e)
         {
@@ -777,19 +782,19 @@ namespace PDFTool
             buttonVarUp.Image = global::PDFTool.Properties.Resources.smalluparrow;
             buttonVarUp.Name = textBoxNum.ToString();
             buttonVarUp.Size = new System.Drawing.Size(22, 22);
-            buttonVarUp.Location = new Point(195, 7);
+            buttonVarUp.Location = new Point(200, 7);
             buttonVarUp.Click += new System.EventHandler(this.up_Function);
             buttonVarUp.BackColor = System.Drawing.Color.White;
 
             //=====================================
-            //=========CREATES NEW BUTTON==========
+            //=========CREATES NEW BUTTON========== // original form 292
             //=====================================
 
             Button buttonVarDown = new Button();
             buttonVarDown.Image = global::PDFTool.Properties.Resources.smalldownarrow;
             buttonVarDown.Name = textBoxNum.ToString();
             buttonVarDown.Size = new System.Drawing.Size(22, 22);
-            buttonVarDown.Location = new Point(220, 7);
+            buttonVarDown.Location = new Point(225, 7);
             buttonVarDown.Click += new System.EventHandler(this.down_Function);
             buttonVarDown.BackColor = System.Drawing.Color.White;
 
@@ -801,7 +806,8 @@ namespace PDFTool
             //textboxVar.Text = pdfObjArray[textBoxNum].getPDFname();
             TextBox textboxVar = new TextBox();
             textboxVar.Text = pdfIconArray[textBoxNum].getPDFfileName();
-            textboxVar.Size = new System.Drawing.Size(185, 20);
+            textboxVar.Size = new System.Drawing.Size(190, 20);
+            textboxVar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             textboxVar.Location = new Point(0, 7);
 
             //====================================

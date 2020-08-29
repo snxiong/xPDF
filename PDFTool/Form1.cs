@@ -26,6 +26,7 @@ namespace PDFTool
     {
       
         int currentNum = 0;
+        bool autoUncheck = false;
         
         string panelName = "pdfPanel1";
         string pictureBoxName = "pictureBox1";
@@ -175,7 +176,9 @@ namespace PDFTool
             newPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage"))); // add a picture into the picturebox
             newPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             newPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-     
+
+            //newPictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler();
+
 
             //=======================================
             //==========CREATE NEW CHECKBOX==========
@@ -189,6 +192,8 @@ namespace PDFTool
 
             newCheckBox.CheckedChanged += check_Function;   // action to handle when the checkbox is checked or unchecked.
 
+            
+
             newPanel.Controls.Add(newCheckBox);     // adding the new checkbox to the new PANEL
 
             newCheckBox.Location = new Point(30,120);   // Setting the checkBox location in the PANEL
@@ -196,7 +201,9 @@ namespace PDFTool
             pdfIconObj.setCheckBox(newCheckBox);
 
             pdfIconArray[currentNum] = pdfIconObj;
-            
+
+           
+
 
             //======================================
             //==========CREATE NEW TEXTBOX==========
@@ -281,6 +288,10 @@ namespace PDFTool
 
         }
 
+        private void pictureBox_Click()
+        {
+
+        }
 
         /***********************************************/
         // FUNCTION: void check_Function()
@@ -300,15 +311,15 @@ namespace PDFTool
 
             if (checkBoxVar.Checked)
             {
-                if(mergeFlag)
+                if(mergeFlag)   // if MERGE mode is on when the pdficon checkbox is checked
                 {
                     createMergeControllers(sender);
                 }
-                else if(splitFlag)
+                else if(splitFlag)  // if SPLIT mode is on when the pdficon checkbox is checked
                 {
                     splitAction(sender);
                 }
-                else if(deleteFlag)
+                else if(deleteFlag) // if DELETE mode is on when the pdficon checkbox is checked
                 {
                     deleteAction(sender);
                 }
@@ -321,21 +332,32 @@ namespace PDFTool
                 {
                     removeObjfromMergePanelArray(textBoxNum);
                 }
-                else if(splitFlag)
+                else if(splitFlag && !autoUncheck)
                 {
                     textBox5.Text = "";
                     splitFilePath = "";
+                    checkBoxVar.Checked = false;
+                    //textBox4.Text = "splithit";
 
                 }
-                else if(deleteFlag)
+                else if(deleteFlag && !autoUncheck)
                 {
                     textBox5.Text = "";
                     splitFilePath = "";
+                    checkBoxVar.Checked = false;
+                   // textBox4.Text = "deletehit";
+                }
+
+                if(autoUncheck)
+                {
+                    autoUncheck = false;
                 }
 
             }
 
         }
+
+
 
         /***********************************************/
         // FUNCTION: void removeObjectfromMergePanelArray()
@@ -561,13 +583,19 @@ namespace PDFTool
             if(splitFlag == true)
             {   
                 splitFlag = false;
+                uncheck_all();
                 //splitCheckBox.Checked = false;
                 textBox5.Text = "";
                 splitFilePath = "";
             }
             else if(deleteFlag == true)
             {
+                uncheck_all();
                 deleteFlag = false;
+            }
+            else if(mergeFlag == true)
+            {
+                return;
             }
             
             mergeFlag = true;
@@ -623,11 +651,19 @@ namespace PDFTool
 
             if(deleteFlag == true)
             {
+                textBox5.Text = "";
+                splitFilePath = "";
                 deleteFlag = false;
+                uncheck_all();
             }
             else if(mergeFlag == true)
             {
                 mergeFlag = false;
+                uncheck_all();
+            }
+            else if(splitFlag == true)
+            {
+                return;
             }
 
             splitFlag = true;
@@ -674,13 +710,21 @@ namespace PDFTool
         {
             CheckBox checkBoxVar;
 
-            if(mergeFlag == true)
+            if (mergeFlag == true)
             {
                 mergeFlag = false;
+                uncheck_all();
             }
-            else if(splitFlag == true)
+            else if (splitFlag == true)
             {
+                textBox5.Text = "";
+                splitFilePath = "";
                 splitFlag = false;
+                uncheck_all();
+            }
+            else if (deleteFlag == true)
+            {
+                return;
             }
 
             deleteFlag = true;
@@ -854,6 +898,26 @@ namespace PDFTool
 
 
         /***********************************************/
+        // FUNCTION: void uncheck_all()
+        // DESCRIPTION: unchecks all the pdfIcon panel
+        /***********************************************/
+        private void uncheck_all()
+        {
+            for(int i = 0; i <= 30; i++)
+            {
+                if(pdfIconArray[i] != null)
+                {
+                    pdfIconArray[i].getCheckBox().Checked = false;
+                }
+                else
+                {
+                    i = 31;
+                }
+                
+            }
+        }
+
+        /***********************************************/
         // FUNCTION: void splitAction()
         // DESCRIPTION: split action that happens when the user checks a checkbox in the PDF icon
         /***********************************************/
@@ -868,23 +932,30 @@ namespace PDFTool
 
             splitFilePath = pdfIconArray[textBoxNum].getPDFfilePath(); //splitFilePath will hold the file location of the document the user wants to split
             textBox5.Text = Path.GetFileName(splitFilePath);
+          
+
+
 
             for (int i = 0; i <= 30; i++)
             {
 
-                if(pdfIconArray[i] != null && i != textBoxNum)
+                if (pdfIconArray[i] != null)
                 {
-                   
-                   pdfIconArray[i].getCheckBox().Checked = false;
+                    if(i != textBoxNum)
+                    {
+                        autoUncheck = true;
+                        pdfIconArray[i].getCheckBox().Checked = false;
+                    }
                     
+
                 }
                 else
                 {
                     i = 31;
                 }
-                
-            }
 
+            }
+            
         }
 
         /***********************************************/
@@ -907,11 +978,13 @@ namespace PDFTool
             for (int i = 0; i <= 30; i++)
             {
 
-                if (pdfIconArray[i] != null && i != textBoxNum)
+                if (pdfIconArray[i] != null)
                 {
-
-                    pdfIconArray[i].getCheckBox().Checked = false;
-
+                    if (i != textBoxNum)
+                    {
+                        autoUncheck = true;
+                        pdfIconArray[i].getCheckBox().Checked = false;
+                    }
                 }
                 else
                 {
@@ -977,11 +1050,6 @@ namespace PDFTool
         }
 
         private void panel3FileHolder_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button1Merge_Hover(object sender, MouseEventArgs e)
         {
 
         }

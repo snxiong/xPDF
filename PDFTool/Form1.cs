@@ -173,9 +173,10 @@ namespace PDFTool
             newPictureBox1.Location = new Point(30,30); // Setting the picturebox location in the PANEL
             newPictureBox1.Size = new System.Drawing.Size(100, 80);
 
-            newPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage"))); // add a picture into the picturebox
-            newPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            newPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+          //  newPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage"))); // add a picture into the picturebox
+            newPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            newPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            newPictureBox1.BackColor = System.Drawing.Color.Transparent;
 
             //newPictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler();
 
@@ -197,7 +198,8 @@ namespace PDFTool
             newPanel.Controls.Add(newCheckBox);     // adding the new checkbox to the new PANEL
 
             newCheckBox.Location = new Point(30,120);   // Setting the checkBox location in the PANEL
-            newCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            //newCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
+            newCheckBox.BackColor = System.Drawing.Color.Transparent;
             pdfIconObj.setCheckBox(newCheckBox);
 
             pdfIconArray[currentNum] = pdfIconObj;
@@ -587,11 +589,15 @@ namespace PDFTool
                 //splitCheckBox.Checked = false;
                 textBox5.Text = "";
                 splitFilePath = "";
+                button1Merge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(64)))), ((int)(((byte)(71))))); //61, 64, 71;
+                button2Split.BackColor = System.Drawing.Color.Transparent;
             }
             else if(deleteFlag == true)
             {
                 uncheck_all();
                 deleteFlag = false;
+                button1Merge.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(64)))), ((int)(((byte)(71)))));
+                button3Delete2.BackColor = System.Drawing.Color.Transparent;
             }
             else if(mergeFlag == true)
             {
@@ -599,6 +605,7 @@ namespace PDFTool
             }
             
             mergeFlag = true;
+            
            
             for (int x = 0; x <= 30; x++)
             {
@@ -617,27 +624,19 @@ namespace PDFTool
                 }
             }
 
-            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label3, label4);
             splitPanelControllerObj.disableSplitView();
 
-            deletePanelController deletePanelControllerObj = new deletePanelController(label5, label4, label6, textBox5, textBox6, button4);
+            deletePanelController deletePanelControllerObj = new deletePanelController( label4, label6, textBox5, textBox6, button4);
             deletePanelControllerObj.disableDeleteView();
 
-            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1);
             mergePanelControllerObj.enableMergeView();
 
 
         }
 
-        private void button1Merge_Hover(object sender, EventArgs e)
-        {
-            this.button1Merge22.ForeColor = System.Drawing.Color.Red;
-        }
-
-        private void button1Merge_Leave(object sender, EventArgs e)
-        {
-            this.button1Merge22.ForeColor = System.Drawing.Color.Silver;
-        }
+   
 
 
         /***********************************************/
@@ -655,11 +654,16 @@ namespace PDFTool
                 splitFilePath = "";
                 deleteFlag = false;
                 uncheck_all();
+                button2Split.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(64)))), ((int)(((byte)(71)))));
+                button3Delete2.BackColor = System.Drawing.Color.Transparent;
             }
             else if(mergeFlag == true)
             {
                 mergeFlag = false;
                 uncheck_all();
+                button1Merge.BackColor = System.Drawing.Color.Transparent;
+                button2Split.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(64)))), ((int)(((byte)(71)))));
+
             }
             else if(splitFlag == true)
             {
@@ -686,13 +690,13 @@ namespace PDFTool
             }
             
 
-            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1, label2);
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2,  textBox1);
             mergePanelControllerObj.disableMergeView();
 
-            deletePanelController deletePanelControllerObj = new deletePanelController(label5, label4, label6, textBox5, textBox6, button4);
+            deletePanelController deletePanelControllerObj = new deletePanelController( label4, label6, textBox5, textBox6, button4);
             deletePanelControllerObj.disableDeleteView();
 
-            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label3, label4);
             splitPanelControllerObj.enableSplitView();
 
 
@@ -714,6 +718,9 @@ namespace PDFTool
             {
                 mergeFlag = false;
                 uncheck_all();
+                button1Merge.BackColor = System.Drawing.Color.Transparent;
+                button3Delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(64)))), ((int)(((byte)(71)))));
+
             }
             else if (splitFlag == true)
             {
@@ -721,6 +728,8 @@ namespace PDFTool
                 splitFilePath = "";
                 splitFlag = false;
                 uncheck_all();
+                button2Split.BackColor = System.Drawing.Color.Transparent;
+                button3Delete2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(64)))), ((int)(((byte)(71)))));
             }
             else if (deleteFlag == true)
             {
@@ -729,13 +738,13 @@ namespace PDFTool
 
             deleteFlag = true;
 
-            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1, label2);
+            mergePanelController mergePanelControllerObj = new mergePanelController(button2, button5, tableLayoutPanel2, textBox1);
             mergePanelControllerObj.disableMergeView();
 
-            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label1, label3, label4);
+            splitPanelController splitPanelControllerObj = new splitPanelController(textBox3, textBox4, textBox5, button3, label3, label4);
             splitPanelControllerObj.disableSplitView();
 
-            deletePanelController deletePanelControllerObj = new deletePanelController(label5, label4, label6, textBox5, textBox6, button4);
+            deletePanelController deletePanelControllerObj = new deletePanelController( label4, label6, textBox5, textBox6, button4);
             deletePanelControllerObj.enableDeleteView();
 
         }

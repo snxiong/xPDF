@@ -14,7 +14,6 @@ namespace PDFTool
         TextBox splitTextBox2;
         TextBox splitTextBox3;
         Button splitButton;
-        Label splitLabel1;
         Label splitLabel2;
         Label splitLabel3;
 
@@ -22,13 +21,12 @@ namespace PDFTool
         // CONSTRUCTOR: splitPanelController()
         // DESCRIPTION: Constructs and intializses the object
         /***********************************************/
-        public splitPanelController(TextBox splitTextBoxInput1, TextBox splitTextBoxInput2,TextBox splitTextBoxInput3, Button splitButtonInput, Label splitLabelInput1, Label splitLabelInput2, Label splitLabelInput3)
+        public splitPanelController(TextBox splitTextBoxInput1, TextBox splitTextBoxInput2,TextBox splitTextBoxInput3, Button splitButtonInput, Label splitLabelInput2, Label splitLabelInput3)
         {
             splitTextbox1 = splitTextBoxInput1;
             splitTextBox2 = splitTextBoxInput2; 
             splitTextBox3 = splitTextBoxInput3;
             splitButton = splitButtonInput;
-            splitLabel1 = splitLabelInput1;
             splitLabel2 = splitLabelInput2;
             splitLabel3 = splitLabelInput3;
         }
@@ -44,7 +42,6 @@ namespace PDFTool
             splitTextBox2.Visible = false;
             splitTextBox3.Visible = false;
             splitButton.Visible = false;
-            splitLabel1.Visible = false;
             splitLabel2.Visible = false;
             splitLabel3.Visible = false;
         }
@@ -60,7 +57,6 @@ namespace PDFTool
             splitTextBox2.Visible = true;
             splitTextBox3.Visible = true;
             splitButton.Visible = true;
-            splitLabel1.Visible = true;
             splitLabel2.Visible = true;
             splitLabel3.Visible = true;
         }

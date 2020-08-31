@@ -88,8 +88,8 @@ C:\Users\SnXiong\source\repos\xPDF\PDFTool\bin\Debug\netcoreapp3.1\BouncyCastle.
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.Form1.resources
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.Properties.Resources.resources
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.GenerateResource.cache
-C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.CoreCompileInputs.cache
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.CopyComplete
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.dll
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.pdb
 C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.genruntimeconfig.cache
+C:\Users\SnXiong\source\repos\xPDF\PDFTool\obj\Debug\netcoreapp3.1\PDFTool.csproj.CoreCompileInputs.cache

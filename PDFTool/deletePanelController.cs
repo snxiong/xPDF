@@ -16,16 +16,14 @@ namespace PDFTool
 {
     class deletePanelController
     {
-        Label deleteLabel;  //label5
         Label deleteLabel1; //label4
         Label deleteLabel2; //label6
         TextBox deleteTextBox; //textbox5
         TextBox deleteTextBox1; //textbox6
         Button deleteButton; //button4
 
-        public deletePanelController(Label dLabelInput, Label dLabelInput1, Label dLabelInput2, TextBox dTextBoxInput, TextBox dTextBoxInput1, Button dButtonInput)
+        public deletePanelController( Label dLabelInput1, Label dLabelInput2, TextBox dTextBoxInput, TextBox dTextBoxInput1, Button dButtonInput)
         {
-            deleteLabel = dLabelInput;
             deleteLabel1 = dLabelInput1;
             deleteLabel2 = dLabelInput2;
             deleteTextBox = dTextBoxInput;
@@ -40,7 +38,6 @@ namespace PDFTool
         /***********************************************/
         public void disableDeleteView()
         {
-            deleteLabel.Visible = false;
             deleteLabel1.Visible = false;
             deleteLabel2.Visible = false;
             deleteTextBox.Visible = false;
@@ -55,7 +52,6 @@ namespace PDFTool
         /***********************************************/
         public void enableDeleteView()
         {
-            deleteLabel.Visible = true;
             deleteLabel1.Visible = true;
             deleteLabel2.Visible = true;
             deleteTextBox.Visible = true;

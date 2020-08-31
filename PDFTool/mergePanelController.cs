@@ -21,19 +21,17 @@ namespace PDFTool
         Button mergeButton;
         TableLayoutPanel mergeTableLayoutPanel;
         TextBox textBoxMerge;
-        Label mergeLabel;
 
         /***********************************************/
         // CONSTRUCTOR: mergePanelController()
         // DESCRIPTION: Constructs and intializses the object
         /***********************************************/
-        public mergePanelController(Button addPDFButtonInput, Button mergeButtonInput, TableLayoutPanel tableLayoutPanelInput, TextBox textBoxMergeInput, Label labelInput)
+        public mergePanelController(Button addPDFButtonInput, Button mergeButtonInput, TableLayoutPanel tableLayoutPanelInput, TextBox textBoxMergeInput)
         {
             //addPDFButton = addPDFButtonInput;
             mergeButton = mergeButtonInput;
             mergeTableLayoutPanel = tableLayoutPanelInput;
             textBoxMerge = textBoxMergeInput;
-            mergeLabel = labelInput;
         }
 
         /***********************************************/
@@ -46,7 +44,6 @@ namespace PDFTool
             mergeButton.Visible = false;
             mergeTableLayoutPanel.Visible = false;
            // textBoxMerge.Visible = false;
-            mergeLabel.Visible = false;
         }
 
         /***********************************************/
@@ -59,7 +56,6 @@ namespace PDFTool
             mergeButton.Visible = true;
             mergeTableLayoutPanel.Visible = true;
            // textBoxMerge.Visible = true;
-            mergeLabel.Visible = true;
         }
     }
 }

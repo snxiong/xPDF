@@ -8,6 +8,7 @@ namespace PDFTool
         Panel panelObj;
         int NumID; // used for identification
         CheckBox checkBoxVar;
+        PictureBox pictureBoxVar;
 
         /***********************************************/
         // CONSTRUCTOR: pdfIconPanelClass()
@@ -35,6 +36,25 @@ namespace PDFTool
         public void setCheckBox(CheckBox checkBoxInput)
         {
             checkBoxVar = checkBoxInput;
+        }
+
+        /***********************************************/
+        // FUNCTION: void setPictureBox()
+        // DESCRIPTION: Set-function to save the picture box controller
+        /***********************************************/
+        public void setPictureBox(PictureBox pictureBoxInput)
+        {
+            pictureBoxVar = pictureBoxInput;
+        }
+
+
+        /***********************************************/
+        // FUNCTION: void getPicturebox()
+        // DESCRIPTION: Get-function to return the saved picture box controller
+        /***********************************************/
+        public PictureBox getPicturebox()
+        {
+            return pictureBoxVar;
         }
 
         /***********************************************/

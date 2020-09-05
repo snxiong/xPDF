@@ -41,6 +41,8 @@ namespace PDFTool
         string splitFilePath = "";
         CheckBox splitCheckBox;
 
+        //CheckBox[] checkBoxArray = new CheckBox[30];
+
 
 
         // mergePanelArray holds the names of the files that the user wants to be merged
@@ -97,7 +99,7 @@ namespace PDFTool
                 
             }
 
-            textBox1.Text = "";
+          //  textBox1.Text = "";
             
             //fileName = pdfObjArray[currentNum].getPDFname();
             for(int i = 0; i <= 30; i++)
@@ -110,7 +112,7 @@ namespace PDFTool
             }
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 
-            textBox1.Text = " currentNum = " + currentNum;
+           // textBox1.Text = " currentNum = " + currentNum;
 
             //====================================
             //==========CREATE NEW PANEL==========
@@ -177,6 +179,9 @@ namespace PDFTool
             newPictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             newPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             newPictureBox1.BackColor = System.Drawing.Color.Transparent;
+            newPictureBox1.Click += new System.EventHandler(this.pictureBox_Click);
+            pdfIconObj.setPictureBox(newPictureBox1);
+
 
             //newPictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler();
 
@@ -189,6 +194,7 @@ namespace PDFTool
             checkBoxName = checkBoxName + currentNum.ToString();
 
             CheckBox newCheckBox = new CheckBox();
+            //checkBoxArray[currentNum] = newCheckBox;
             newCheckBox.Name = checkBoxName;        // Setting the new name of the CheckBox name
 
             newCheckBox.CheckedChanged += check_Function;   // action to handle when the checkbox is checked or unchecked.
@@ -238,7 +244,6 @@ namespace PDFTool
         }
 
 
-
         /***********************************************/
         // FUNCTION: void delete_Function()
         // EVENTLISTENER: for the "DELETE" button that removes the PDF icon
@@ -266,6 +271,7 @@ namespace PDFTool
                 {
                     tableLayoutPanel1.Controls.Remove(pdfIconArray[i].getPanel());
                     pdfIconArray[i] = null;
+                   // checkBoxArray[i] = null;
                     i = 31;
                 }
            
@@ -290,8 +296,41 @@ namespace PDFTool
 
         }
 
-        private void pictureBox_Click()
+        /***********************************************/
+        // FUNCTION: void pictureBox_Click()
+        // EVENTLISTENER: eventlistener for when the user clicks the picturebox contrls, that will mimic the same action as though
+        //                the user has check the checkbox and make the document appear on the merge box list.
+        /***********************************************/
+
+        private void pictureBox_Click(object sender, EventArgs e)
         {
+
+            PictureBox pictureBoxVar = sender as PictureBox;
+            int textboxNum = 0;
+           
+            
+            
+
+            for(int i = 0; i <= 30; i++)
+            {
+                if (pdfIconArray[i].getPicturebox().Name.Equals(pictureBoxVar.Name))
+                {
+                    textboxNum = i;
+                    i = 31;
+                    //textBox1.Text = "you clicked " + i.ToString() + " " + pdfIconArray[i].getCheckBox().Name + " | " + pictureBoxVar.Name;
+                }
+            }
+
+            if (pdfIconArray[textboxNum].getCheckBox().Checked)
+            {
+                pdfIconArray[textboxNum].getCheckBox().Checked = false;
+            }
+            else
+            {
+                pdfIconArray[textboxNum].getCheckBox().Checked = true;
+            }
+
+
 
         }
 
@@ -307,7 +346,7 @@ namespace PDFTool
             //textBox1.Text = "Check box check " + checkBoxVar.Name;
             int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8,1));  // get the checkbox number
 
-            textBox1.Text = "" + textBoxNum;
+           // textBox1.Text = "" + textBoxNum;
             // textBox1.Text += " num = " + textBoxNum.ToString();
 
 
@@ -505,7 +544,7 @@ namespace PDFTool
         {
             Button buttonVar = sender as Button;
             int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
-            textBox1.Text = "DOWN " + textBoxNum;
+            //textBox1.Text = "DOWN " + textBoxNum;
 
             int placement = 0;
             int replacementNum = 0;

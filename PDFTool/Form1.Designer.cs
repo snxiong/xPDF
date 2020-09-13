@@ -54,6 +54,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3Delete = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2ActionDetail.SuspendLayout();
             this.panel3FileHolder.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -66,6 +67,7 @@
             // panel2ActionDetail
             // 
             this.panel2ActionDetail.BackColor = System.Drawing.Color.LightGray;
+            this.panel2ActionDetail.Controls.Add(this.button1);
             this.panel2ActionDetail.Controls.Add(this.button4);
             this.panel2ActionDetail.Controls.Add(this.textBox6);
             this.panel2ActionDetail.Controls.Add(this.label6);
@@ -427,6 +429,23 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkGray;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(209, 26);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 35);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "pdficonarray";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.pdfIconOutput);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -481,6 +500,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel button3Delete;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

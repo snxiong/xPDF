@@ -26,6 +26,8 @@ namespace PDFTool
         int linkNum;
         int que;
         CheckBox checkBoxVar;
+        Button upButtonVar;
+        Button downButtonVar;
 
 
         /***********************************************/
@@ -63,6 +65,27 @@ namespace PDFTool
             return checkBoxVar;
         }
 
+        public void setButtonUp(Button buttonUpInput)
+        {
+            upButtonVar = buttonUpInput;
+        }
+
+        public void setButtonDown(Button buttonDownInput)
+        {
+            downButtonVar = buttonDownInput;
+        }
+
+        public Button getButtonUp()
+        {
+            return upButtonVar;
+        }
+
+        public Button getButtonDown()
+        {
+            return downButtonVar;
+        }
+
+
         /***********************************************/
         // FUNCTION: void setPlacement()
         // DESCRIPTION: Set-function that saves the current que of the PDF documents.
@@ -71,6 +94,11 @@ namespace PDFTool
         public void setQue(int queInput)
         {
             que = queInput;
+        }
+
+        public void setLink(int linkNumInput)
+        {
+            linkNum = linkNumInput;
         }
 
         /***********************************************/
@@ -122,7 +150,104 @@ namespace PDFTool
         {
             return fileLocation;
         }
-        
+
+        /*
+        private void createMergeControllers(object sender)
+        {
+            CheckBox checkBoxVar = sender as CheckBox;
+
+            //textBox1.Text = "Check box check " + checkBoxVar.Name;
+            int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8, 1));  // get the checkbox number
+
+            //=====================================
+            //=========CREATES NEW PANEL===========
+            //=====================================
+
+            Panel panelVar = new Panel();
+            panelVar.Size = new System.Drawing.Size(244, 37);
+
+            //=====================================
+            //=========CREATES NEW BUTTON==========
+            //=====================================
+
+            Button buttonVarUp = new Button();
+            buttonVarUp.Image = global::PDFTool.Properties.Resources.smalluparrow;
+            //buttonVarUp.Name = textBoxNum.ToString();
+            buttonVarUp.Size = new System.Drawing.Size(22, 22);
+            buttonVarUp.Location = new Point(200, 7);
+            buttonVarUp.Click += new System.EventHandler(this.up_Function);
+            buttonVarUp.BackColor = System.Drawing.Color.White;
+
+            //=====================================
+            //=========CREATES NEW BUTTON========== // original form 292
+            //=====================================
+
+            Button buttonVarDown = new Button();
+            buttonVarDown.Image = global::PDFTool.Properties.Resources.smalldownarrow;
+            //buttonVarDown.Name = textBoxNum.ToString();
+            buttonVarDown.Size = new System.Drawing.Size(22, 22);
+            buttonVarDown.Location = new Point(225, 7);
+            buttonVarDown.Click += new System.EventHandler(this.down_Function);
+            buttonVarDown.BackColor = System.Drawing.Color.White;
+
+            //=====================================
+            //========CREATES NEW TEXTBOX==========
+            //=====================================
+
+            //textboxVar.Name = mergeTextBoxName;
+            //textboxVar.Text = pdfObjArray[textBoxNum].getPDFname();
+            TextBox textboxVar = new TextBox();
+            textboxVar.Text = pdfIconArray[textBoxNum].getPDFfileName();
+
+            textboxVar.Size = new System.Drawing.Size(190, 20);
+            textboxVar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            textboxVar.Location = new Point(0, 7);
+
+            //====================================
+            //========CREATES NEW TEXTBOX=========
+            //=====================================
+            TextBox textboxVar2 = new TextBox();
+            textboxVar2.Text = textBoxNum.ToString();
+            textboxVar2.Visible = false;
+
+            // Adds all newly created controllers to the panel
+            panelVar.Controls.Add(textboxVar2);
+            panelVar.Controls.Add(textboxVar);
+            panelVar.Controls.Add(buttonVarUp);
+            panelVar.Controls.Add(buttonVarDown);
+
+            mergePanelClass mergePanelObj = null;
+
+            // textBoxNum is bugging the program
+
+            int x = 0;
+            for (int i = 0; i <= 30; i++)
+            {
+                if (textBoxNum == pdfIconArray[i].getID())
+                {
+                    mergePanelObj = new mergePanelClass(panelVar, pdfIconArray[i].getPDFfilePath(), textBoxNum, pdfIconArray[i].getCheckBox());
+                    i = 31;
+                }
+            }
+
+            for (int i = 0; i <= 30; i++)
+            {
+                if (mergePanelArray[i] == null)
+                {
+                    mergePanelObj.setQue(i); // setPlacement
+                    mergePanelArray[i] = mergePanelObj;
+                    i = 31;
+                }
+                else
+                {
+                    //WE NEED TO DO SOMETHING HERE
+                }
+            }
+
+            tableLayoutPanel2.Controls.Add(mergePanelObj.getPanel());
+        }
+        */
+
     }
 
 

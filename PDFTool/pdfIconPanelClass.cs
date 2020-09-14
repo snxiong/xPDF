@@ -119,10 +119,7 @@ namespace PDFTool
         /***********************************************/
         public string getPDFfileName()
         {
-            if(pdfObj.getPDFname() == "")
-            {
-                return null;
-            }
+           
 
             return pdfObj.getPDFname();
         }

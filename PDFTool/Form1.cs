@@ -83,6 +83,7 @@ namespace PDFTool
             openFileDialog1.FilterIndex = 0;
             openFileDialog1.RestoreDirectory = true;
 
+           
 
             //textBox1.Text = "" + "[" + currentNum + "]";
             var path = "";
@@ -97,6 +98,13 @@ namespace PDFTool
                 pdfIconObj.setPDF(pdfFileObj);
 
                 
+
+
+                
+            }
+            else
+            {
+                return;
             }
 
             //  textBox1.Text = "";
@@ -257,7 +265,7 @@ namespace PDFTool
 
         }
 
-
+        // PROBLEM HERE, DELETE FUNCTION DELETEING WRONG PDF ICON
         /***********************************************/
         // FUNCTION: void delete_Function()
         // EVENTLISTENER: for the "DELETE" button that removes the PDF icon
@@ -268,14 +276,10 @@ namespace PDFTool
 
             Button buttonName = sender as Button;
 
-            //textBox1.Text = "Delete press  " + buttonName.Name.Substring(9,1) + " , " ;
-
-            //int panelNum = Int32.Parse(buttonName.Name.Substring(9, 1));    //the number of the panel to be deleted
-
             int linkNum = 0;
            
             for(int i = 0; i <= 30; i++)
-            {
+            { // locate the obj to be removed from the PDF Icon and the PDF Icon layout
                 if(buttonName.Name == pdfIconArray[i].getButton().Name)
                 {
                     linkNum = pdfIconArray[i].getID();
@@ -294,57 +298,21 @@ namespace PDFTool
             reorganizepdfIconArray();
 
             for(int i = 0; i <= 30; i++)
-            {
-                if(linkNum == mergePanelArray[i].getLinkNum())
-                {
-                    tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
-                    mergePanelArray[i] = null;
-                    i = 31;
-                }
-                else if(mergePanelArray[i] == null)
-                {
-                    i = 31;
-                }
-            }
-            reorganizeMergePanelArray();
-            /*
-            for(int i = 0; i <= 30; i++)
-            {
-                if(pdfIconArray[i] == null)
-                {
-                    //int k = i - 1;
-                    //textBox1.Text = "CRAP i = " + i + " panelNum = " + panelNum + " ID =" + pdfIconArray[panelNum].getID();
-                    i = 31;
-                    
-                }
-                else if(panelNum == pdfIconArray[i].getID())
-                {
-                    tableLayoutPanel1.Controls.Remove(pdfIconArray[i].getPanel());
-                    pdfIconArray[i] = null;
-                   // checkBoxArray[i] = null;
-                    i = 31;
-                }
-           
-            }
-         
-            //reorganizepdfIconArray();
+            {   // checks to see if the PDF Icon was in the merge panel Tablelayout, if it is then removes it from there also
 
-            for (int i = 0; i <= 30; i++)
-            {
-                if (mergePanelArray[i] == null)
+                if(mergePanelArray[i] == null)
                 {
                     i = 31;
                 }
-                else if (panelNum == mergePanelArray[i].getLinkNum())
-                {
+                else if(linkNum == mergePanelArray[i].getLinkNum())
+                {   
                     tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
                     mergePanelArray[i] = null;
                     i = 31;
                 }
-                
             }
             reorganizeMergePanelArray();
-               */
+
 
         }
 
@@ -437,7 +405,7 @@ namespace PDFTool
                 }
             }
 
-            textBox1.Text = "PDFID = " + pdfID;
+            //textBox1.Text = "PDFID = " + pdfID;
 
             // textBox1.Text = "" + textBoxNum;
             // textBox1.Text += " num = " + textBoxNum.ToString();
@@ -499,6 +467,7 @@ namespace PDFTool
         // FUNCTION: void removeObjectfromMergePanelArray()
         // DESCRIPTION: removes an object from the mergePanelArray referenced by inputTextBoxNum
         /***********************************************/
+        /*
         private void removeObjfromMergePanelArray(int inputTextBoxNum)
         {
             for (int i = 0; i <= 30; i++)
@@ -536,17 +505,24 @@ namespace PDFTool
                 }
             }
         }
+        */
 
+        // CURRENTLY BEING USED
         private void removeObjfromMergePanelArray(pdfIconPanelClass pdfObj)
         {
             int index = pdfObj.getID();
 
             for(int i = 0; i <= 30; i++)
             {
-                if(mergePanelArray[i].getLinkNum() == pdfObj.getID())
+                if(mergePanelArray[i] == null)
+                {
+                    //textBox1.Text = "no mergepanel";
+                }
+                else if(mergePanelArray[i].getLinkNum() == pdfObj.getID())
                 {
                     tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
                     mergePanelArray[i] = null;
+                    //textBox1.Text = "match";
                     i = 31;
                 }
                 else
@@ -621,15 +597,31 @@ namespace PDFTool
         private void up_Function(object sender, EventArgs e)
         {
             Button buttonVar = sender as Button;
-            int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
+            //int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
 
-            //textBox1.Text = "UP " + textBoxNum + "" ;
-
-           
-
+            int mergePanelID = 0;
             int placement = 0;
             int replacementNum = 0;
 
+            //textBox1.Text = "UP " + textBoxNum + "" ;
+            for (int i = 0; i <= 30; i++)
+            {
+
+                if(mergePanelArray[i] == null)
+                {
+                    i = 31;
+                }
+                else if(buttonVar.Name == mergePanelArray[i].getButtonUp().Name)
+                {
+                    mergePanelID = mergePanelArray[i].getLinkNum();
+                    placement = mergePanelArray[i].getQue();
+                    
+                    i = 31;
+                }
+
+            }
+
+            /*
             for(int i = 0; i <= 30; i++)
             {
                 if(textBoxNum == mergePanelArray[i].getLinkNum())
@@ -638,9 +630,10 @@ namespace PDFTool
                     i = 31;
                 }
             }
+            */
 
             for(int i= 0;i <= 30; i++)
-            {
+            {   //removeing all mergePanel controllers from the 2nd table layout
                 if(mergePanelArray[i] != null)
                 {
                     tableLayoutPanel2.Controls.Remove(mergePanelArray[i].getPanel());
@@ -652,8 +645,7 @@ namespace PDFTool
             }
 
             if(placement != 0)
-            {
-
+            {   // re-organizes the order placement
                 replacementNum = placement - 1;
                 mergePanelClass mergePanelHolder = mergePanelArray[replacementNum];
                 mergePanelArray[replacementNum] = mergePanelArray[placement];
@@ -663,7 +655,7 @@ namespace PDFTool
             }
 
             for(int i = 0; i <= 30; i++)
-            {
+            {   // re-adding all mergePanel controllers to the 2nd table layout
                 if(mergePanelArray[i] != null)
                 {
                     tableLayoutPanel2.Controls.Add(mergePanelArray[i].getPanel());
@@ -684,20 +676,33 @@ namespace PDFTool
         private void down_Function(object sender, EventArgs e)
         {
             Button buttonVar = sender as Button;
-            int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
+            //int textBoxNum = Int32.Parse(buttonVar.Name.Substring(0, 1));
             //textBox1.Text = "DOWN " + textBoxNum;
 
+            int mergePanelID = 0;
             int placement = 0;
             int replacementNum = 0;
             int lastObj = 0;
 
             for(int i = 0; i <= 30; i++)
             {
+                if(mergePanelArray[i] == null)
+                {
+                    i = 31;
+                }
+                else if(buttonVar.Name == mergePanelArray[i].getButtonDown().Name)
+                {
+                    mergePanelID = mergePanelArray[i].getLinkNum();
+                    placement = mergePanelArray[i].getQue();
+                    i = 31;
+                }
+                /*
                 if(textBoxNum == mergePanelArray[i].getLinkNum())
                 {
                     placement = mergePanelArray[i].getQue();
                     i = 31;
                 }
+                */
             }
 
             for(int i = 0; i <= 30; i++)
@@ -737,9 +742,6 @@ namespace PDFTool
                 }
             }
 
-            
-
-           
         }
 
 
@@ -991,6 +993,7 @@ namespace PDFTool
         // FUNCTION: void createMergeControllers()
         // DESCRIPTION: function that creates all the controllers for the Merge Panel
         /***********************************************/
+        /*
         private void createMergeControllers(object sender)
         {
             CheckBox checkBoxVar = sender as CheckBox;
@@ -1093,15 +1096,23 @@ namespace PDFTool
 
             tableLayoutPanel2.Controls.Add(mergePanelObj.getPanel());
         }
+        */
 
-        
+        /***********************************************/
+        // FUNCTION: void createMergeControllers()
+        // DESCRIPTION: function that creates all the controllers for the Merge Panel
+        /***********************************************/
+
         private void createMergeControllers(pdfIconPanelClass pdfObj)
         {
-           // CheckBox checkBoxVar = sender as CheckBox;
+            // CheckBox checkBoxVar = sender as CheckBox;
 
             //int textBoxNum = Int32.Parse(checkBoxVar.Name.Substring(8,1));
 
-            
+            string buttonUp = "buttonUP" + currentNum.ToString();
+            string buttonDown = "buttonDown" + currentNum.ToString();
+            currentNum++;
+
 
             Panel panelVar = new Panel();
             panelVar.Size = new System.Drawing.Size(244,37);
@@ -1110,6 +1121,7 @@ namespace PDFTool
             buttonVarUp.Image = global::PDFTool.Properties.Resources.smalluparrow;
             buttonVarUp.Size = new System.Drawing.Size(22,22);
             buttonVarUp.Location = new Point(200,7);
+            buttonVarUp.Name = buttonUp;
             buttonVarUp.Click += new System.EventHandler(this.up_Function);
             buttonVarUp.BackColor = System.Drawing.Color.White;
 
@@ -1117,6 +1129,7 @@ namespace PDFTool
             buttonVarDown.Image = global::PDFTool.Properties.Resources.smalldownarrow;
             buttonVarDown.Size = new System.Drawing.Size(22,22);
             buttonVarDown.Location = new Point(225, 7);
+            buttonVarDown.Name = buttonDown;
             buttonVarDown.Click += new System.EventHandler(this.down_Function);
             buttonVarDown.BackColor = System.Drawing.Color.White;
 
@@ -1133,7 +1146,8 @@ namespace PDFTool
             panelVar.Controls.Add(buttonVarDown);
 
             mergePanelClass mergePanelObj = new mergePanelClass(panelVar, pdfObj.getPDFfilePath(), pdfObj.getID(), pdfObj.getCheckBox()) ;
-
+            mergePanelObj.setButtonDown(buttonVarDown);
+            mergePanelObj.setButtonUp(buttonVarUp);
 
             /*
             int x = 0;
